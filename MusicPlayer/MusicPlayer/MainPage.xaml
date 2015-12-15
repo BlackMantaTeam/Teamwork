@@ -6,8 +6,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Background.png"/>
+        </Grid.Background>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                <Button Name="LoginButton" 
+                        Content="Login"
+                        Style="{StaticResource RegularButton}"/>
+                <Button Name="RegisterButton"
+                        Content="Register"
+                        Style="{StaticResource RegularButton}"/>
+            </StackPanel>
+            <TextBlock  Text="Music Player"
+        		        HorizontalAlignment="Center"
+                        Margin="0,150,0,50"
+                        FontSize="80" 
+                        FontWeight="Normal" 
+                        Foreground="White"/>    
+        </Grid>
     </Grid>
 </Page>
+
+<!--Foreground="White"
+                        FontSize="30"
+                        BorderThickness="2"
+                        BorderBrush="White"
+                        Background="Red"
+                        Margin="20,20"-->

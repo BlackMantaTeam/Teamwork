@@ -131,7 +131,7 @@
     <None Include="MusicPlayer_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Background.jpg" />
+    <Content Include="Assets\Background.png" />
     <Content Include="Assets\Background1.jpg" />
     <Content Include="Assets\images %282%29.jpg" />
     <Content Include="Assets\images %283%29.jpg" />
