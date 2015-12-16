@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,20 @@ namespace MusicPlayer.Views
         public CreatePlaylistView()
         {
             this.InitializeComponent();
+            var contentViewModel = new PlaylistViewModel("playlist1");
+            //TODO ToDetele
+            contentViewModel.Songs = new List<SongViewModel>()
+            {
+                new SongViewModel(1,"Song1","MyPlaylistPageViewModel"),
+                new SongViewModel(2,"Song2","MyPlaylistPageViewModel")
+            };
+
+            this.DataContext = new CreatePlaylistPageViewModel(contentViewModel);
+        }
+
+        private void SavePlaylistButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyPlaylistsView));
         }
     }
 }

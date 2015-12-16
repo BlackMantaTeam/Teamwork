@@ -6,9 +6,14 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class MainPageViewModel: ViewModelBase, IPageViewModel
+    public class MyPlaylistPageViewModel: ViewModelBase, IPageViewModel
     {
-        private readonly string PageTitle = "Music Player";
+        private readonly string PageTitle = "My Playlists";
+
+        public MyPlaylistPageViewModel(IContentViewModel contentViewModel)
+        {
+            this.ContentViewModel = contentViewModel;
+        }
 
         public string Title
         {

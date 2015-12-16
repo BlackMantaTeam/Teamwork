@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MusicPlayer.ViewModels;
+using MusicPlayer.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,12 @@ namespace MusicPlayer
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = new MainPageViewModel();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyPlaylistsView));
         }
     }
 }

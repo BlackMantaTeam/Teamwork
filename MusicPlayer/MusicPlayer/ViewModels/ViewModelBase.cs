@@ -12,6 +12,7 @@
             {
                 return;
             }
+
             this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }

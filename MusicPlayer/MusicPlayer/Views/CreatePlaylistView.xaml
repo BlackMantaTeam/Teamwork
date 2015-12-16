@@ -5,9 +5,73 @@
     xmlns:local="using:MusicPlayer.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MusicPlayer.ViewModels"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="SongTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding SongTitle}" 
+                           Foreground="White"/>
+                <Button Content="X"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Background1.png"
+                        Stretch="UniformToFill"                          
+                        AlignmentY="Center" 
+                        AlignmentX="Center"/>
+        </Grid.Background>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid Name="CreatePlaylistTitle"
+              Grid.Row="0">
+            <TextBlock Text="{Binding Title}"
+                       Style="{StaticResource TitleStyle}"/>
+        </Grid>
+        <Grid Name="NewPlaylistContent"
+              Grid.Row="1">
+            <!--<TextBlock Text="{Binding PlaylistTitle}"
+                       Style="{StaticResource TitleStyle}"/>-->
+            <ListBox ItemsSource="{Binding ContentViewModel.Songs}"
+                     ItemTemplate="{StaticResource SongTemplate}"
+                     Background="Transparent"/>
+        </Grid>
+        <Grid Name="AddSong"
+              Grid.Row="2"
+              Background="Transparent">
+            <Grid.Resources>
+                <viewModels:PlaylistViewModel x:Key="newSong"/>
+            </Grid.Resources>
+            <StackPanel VerticalAlignment="Center">
+                <TextBox Name="playlistTitle"
+                     PlaceholderText="Playlist Title"
+                     Style="{StaticResource EnterInfo}"
+                     Text="{Binding PlaylistTitle, Mode=TwoWay}"/>
+                <TextBox Name="songTitle"
+                     PlaceholderText="Song Title"
+                     Style="{StaticResource EnterInfo}"
+                     Text="{Binding SongTitle, Mode=TwoWay}"/>
+                <TextBox Name="songUrl"
+                     PlaceholderText="Song Url"
+                     Style="{StaticResource EnterInfo}"
+                     Text="{Binding Url, Mode=TwoWay}"/>
+                <Button Content="Add Song"
+                    CommandParameter="{StaticResource newSong}"
+                    Style="{StaticResource RegularButton}"
+                    Command="{Binding ContentViewModel.AddSong}"/>
+                <Button Name="SavePlaylistButton" 
+                        Content="Save Playlist"
+                        Style="{StaticResource RegularButton}"
+                        Click="SavePlaylistButton_Click"/>
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </Page>

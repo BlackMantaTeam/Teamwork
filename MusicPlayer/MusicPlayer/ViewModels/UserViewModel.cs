@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class UserViewModel
+    public class UserViewModel: IContentViewModel
     {
         public int Id { get; set; }
 
@@ -14,8 +14,8 @@
 
         public string Password { get; set; }
 
-        public string PictureUrl { get; set; }
+        public string ImgUrl { get; set; }
 
-        public IEnumerable<PlaylistViewModel> Playlists;
+        public IEnumerable<PlaylistViewModel> Playlists { get; set; }
     }
 }

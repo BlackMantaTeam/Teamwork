@@ -5,9 +5,55 @@
     xmlns:local="using:MusicPlayer.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MusicPlayer.ViewModels"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <DataTemplate x:Key="PlaylistTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding PlaylistTitle}" 
+                           Foreground="White"/>
+                <Button Content="X"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Background1.png"
+                        Stretch="UniformToFill"                          
+                        AlignmentY="Center" 
+                        AlignmentX="Center"/>
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid Name="MyPlaylistsTitle"
+              Grid.Row="0">
+            <TextBlock Text="{Binding Title}"
+                       Style="{StaticResource TitleStyle}"/>
+        </Grid>
+        <Grid Name="MyPlaylistsContent"
+              Grid.Row="1">
+            <ListBox ItemsSource="{Binding ContentViewModel.Playlists}"
+                     ItemTemplate="{StaticResource PlaylistTemplate}"
+                     Background="Transparent"/>
+        </Grid>
+        <Grid Name="Create"
+              Grid.Row="2"
+              Background="Transparent">
+        <StackPanel VerticalAlignment="Bottom">
+                <Button Name="CreateButton" 
+                        Content="Create a new Playlist"
+                        Style="{StaticResource RegularButton}"
+                        Click="CreateButton_Click"/>
+            <Button Name="LogoutButton" 
+                        Content="Logout"
+                        Style="{StaticResource RegularButton}"
+                        Click="LogoutButton_Click"/>
+        </StackPanel>
+    </Grid>
     </Grid>
 </Page>
