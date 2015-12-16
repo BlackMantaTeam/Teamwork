@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Black">
+    Background="Black">    
     
     <Grid>
         <Grid.Background>
@@ -31,10 +31,11 @@
                 <Button Name="LoginButton" 
                         Content="Login"
                         Style="{StaticResource RegularButton}"
-                        Click="LoginButton_Click"/>
+                        Click="OnLoginButtonClick"/>
                 <Button Name="RegisterButton"
                         Content="Register"
-                        Style="{StaticResource RegularButton}"/>
+                        Style="{StaticResource RegularButton}"
+                        Click="OnRegisterButtonClick"/>
             </StackPanel>
             <TextBlock  Text="{Binding Title}"
         		        HorizontalAlignment="Center"

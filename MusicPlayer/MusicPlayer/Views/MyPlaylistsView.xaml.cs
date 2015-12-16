@@ -1,23 +1,21 @@
-﻿using MusicPlayer.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿namespace MusicPlayer.Views
+{    
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.InteropServices.WindowsRuntime;
+    using MusicPlayer.ViewModels;
+    using Windows.Foundation;
+    using Windows.Foundation.Collections;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Controls.Primitives;
+    using Windows.UI.Xaml.Data;
+    using Windows.UI.Xaml.Input;
+    using Windows.UI.Xaml.Media;
+    using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace MusicPlayer.Views
-{
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -27,6 +25,7 @@ namespace MusicPlayer.Views
         {
             this.InitializeComponent();
             var contentViewModel = new UserViewModel();
+
             //TODO ToDetele
             contentViewModel.Playlists = new List<PlaylistViewModel>()
             {
@@ -37,16 +36,14 @@ namespace MusicPlayer.Views
             this.DataContext = new MyPlaylistPageViewModel(contentViewModel);
         }
 
-        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        private void OnCreateButtonClick(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreatePlaylistView));
         }
 
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        private void OnLogoutButtonClick(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
     }
-
 }
-

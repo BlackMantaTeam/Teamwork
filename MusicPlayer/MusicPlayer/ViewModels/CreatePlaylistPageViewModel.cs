@@ -6,9 +6,9 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class CreatePlaylistPageViewModel:ViewModelBase, IPageViewModel
+    public class CreatePlaylistPageViewModel : ViewModelBase, IPageViewModel
     {
-        private readonly string PageTitle = "Create a Playlist";
+        private readonly string pageTitle = "Create a Playlist";
 
         public CreatePlaylistPageViewModel(IContentViewModel contentViewModel)
         {
@@ -19,7 +19,7 @@
         {
             get
             {
-                return this.PageTitle;
+                return this.pageTitle;
             }
         }
 

@@ -1,20 +1,11 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Models;
 
-    public class SongViewModel:ViewModelBase
+    public class SongViewModel : ViewModelBase
     {
-        //public SongViewModel()
-        //    : this(0, string.Empty, string.Empty)
-        //{
-        //}
-
         public SongViewModel(SongViewModel newSong)
-            :this(newSong.Id,newSong.SongTitle,newSong.Url)
+            : this(newSong.Id, newSong.SongTitle, newSong.Url)
         {
         }
 
@@ -30,5 +21,7 @@
         public string SongTitle { get; set; }
 
         public string Url { get; set; }
+
+        public Genre Genre { get; set; }
     }
 }

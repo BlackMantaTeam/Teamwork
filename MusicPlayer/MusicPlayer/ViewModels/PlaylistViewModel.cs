@@ -1,10 +1,11 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    using Common;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Windows.Input;
+    using Common;
+    using Models;
 
     public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
     {
@@ -13,7 +14,7 @@
         private ICommand deleteCommand;
 
         public PlaylistViewModel()
-            :this(string.Empty)
+            : this(string.Empty)
         {
         }
 
@@ -23,6 +24,8 @@
         }
 
         public string PlaylistTitle { get; set; }
+
+        public Genre Genre { get; set; }
 
         public IEnumerable<SongViewModel> Songs
         {
@@ -59,6 +62,7 @@
                         this.songs.Add(new SongViewModel(newSong));
                     });
                 }
+
                 return this.addSongCommand;
             }
         }
@@ -74,6 +78,7 @@
                         this.songs.Remove(song);
                     });
                 }
+
                 return this.deleteCommand;
             }
         }

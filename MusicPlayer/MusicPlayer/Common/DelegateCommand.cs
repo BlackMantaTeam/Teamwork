@@ -8,12 +8,13 @@
         private Action<T> execute;
         private Func<bool> canExecute;
 
-        public DelegateCommand(Action<T> execute,
-                   Func<bool> canExecute = null)
+        public DelegateCommand(Action<T> execute, Func<bool> canExecute = null)
         {
             this.execute = execute;
             this.canExecute = canExecute;
         }
+
+        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -24,8 +25,6 @@
 
             return this.canExecute();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public void Execute(object parameter)
         {

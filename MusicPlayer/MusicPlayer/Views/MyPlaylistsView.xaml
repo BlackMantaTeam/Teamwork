@@ -49,11 +49,11 @@
                 <Button Name="CreateButton" 
                         Content="Create a new Playlist"
                         Style="{StaticResource RegularButton}"
-                        Click="CreateButton_Click"/>
+                        Click="OnCreateButtonClick"/>
             <Button Name="LogoutButton" 
                         Content="Logout"
                         Style="{StaticResource RegularButton}"
-                        Click="LogoutButton_Click"/>
+                        Click="OnLogoutButtonClick"/>
         </StackPanel>
     </Grid>
     </Grid>

@@ -70,7 +70,7 @@
                 <Button Name="SavePlaylistButton" 
                         Content="Save Playlist"
                         Style="{StaticResource RegularButton}"
-                        Click="SavePlaylistButton_Click"/>
+                        Click="OnSavePlaylistButtonClick"/>
             </StackPanel>
             
         </Grid>

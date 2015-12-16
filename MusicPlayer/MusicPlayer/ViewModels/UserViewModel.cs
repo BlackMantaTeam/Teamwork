@@ -1,13 +1,26 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    public class UserViewModel: IContentViewModel
+    public class UserViewModel : IContentViewModel
     {
+        public UserViewModel()
+        {
+        }
+
+        public UserViewModel(UserViewModel user)
+            :this(user.Username,user.Password,user.ImgUrl)
+        {
+        }
+
+        public UserViewModel(string username, string password, string ImgUrl)
+        {
+            this.Username = username;
+            this.Password = password;
+            this.ImgUrl = ImgUrl;
+            this.Playlists = new List<PlaylistViewModel>();
+        }
+
         public int Id { get; set; }
 
         public string Username { get; set; }
