@@ -9,14 +9,7 @@
     mc:Ignorable="d"
     Background="Black">
 
-    <Grid >
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Background2.jpg"
-                        Stretch="Uniform"
-                        AlignmentY="Center" 
-                        AlignmentX="Center"/>
-        </Grid.Background>
-
+    <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid Name="RegisterPanel"
               Background="Transparent">
             <StackPanel VerticalAlignment="Center">

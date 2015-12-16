@@ -18,14 +18,7 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Background2.jpg"
-                        Stretch="Uniform"
-                        AlignmentY="Center" 
-                        AlignmentX="Center"/>
-        </Grid.Background>
-
+    <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition/>
