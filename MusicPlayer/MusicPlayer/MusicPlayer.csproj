@@ -139,6 +139,7 @@
   <ItemGroup>
     <Content Include="Assets\Background.png" />
     <Content Include="Assets\Background1.png" />
+    <Content Include="Assets\Background2.jpg" />
     <Content Include="Assets\images %282%29.png" />
     <Content Include="Assets\images %283%29.png" />
     <Content Include="Assets\images %287%29.png" />

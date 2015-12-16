@@ -4,22 +4,22 @@
     xmlns:local="using:MusicPlayer.Styles">
 
     <Style TargetType="TextBlock" x:Key="TitleStyle">
-        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontSize" Value="60*"/>
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="Yellow"/>
     </Style>
     <Style TargetType="Button" x:Key="RegularButton">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="FontSize" Value="20*"/>
+        <Setter Property="BorderThickness" Value="2*"/>
         <Setter Property="BorderBrush" Value="White"/>
         <Setter Property="Background" Value="Red"/>
-        <Setter Property="Margin" Value="20,20"/>
+        <Setter Property="Margin" Value="10,10"/>
     </Style>
     <Style TargetType="TextBox" x:Key="EnterInfo">
-        <Setter Property="Height" Value="10"/>
-        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="10*"/>
+        <Setter Property="Width" Value="150*"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Margin" Value="5,5"/>
         <Setter Property="BorderBrush" Value="White"/>

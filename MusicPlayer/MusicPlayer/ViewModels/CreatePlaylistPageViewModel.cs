@@ -8,7 +8,7 @@
 
     public class CreatePlaylistPageViewModel:ViewModelBase, IPageViewModel
     {
-        private readonly string PageTitle = "Make a new Playlist";
+        private readonly string PageTitle = "Create a Playlist";
 
         public CreatePlaylistPageViewModel(IContentViewModel contentViewModel)
         {

@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:MusicPlayer.ViewModels"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="Black">
 
     <Page.Resources>
         <DataTemplate x:Key="PlaylistTemplate">
@@ -19,8 +20,8 @@
     </Page.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Background1.png"
-                        Stretch="UniformToFill"                          
+            <ImageBrush ImageSource="ms-appx:///Assets/Background2.jpg"
+                        Stretch="Uniform"
                         AlignmentY="Center" 
                         AlignmentX="Center"/>
         </Grid.Background>
