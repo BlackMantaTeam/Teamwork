@@ -6,20 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Black">    
-    
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Background.png"
-                        Stretch="Uniform"                          
-                        AlignmentY="Center" 
-                        AlignmentX="Center">
-                <ImageBrush.Transform>
-                    <ScaleTransform ScaleX="1" ScaleY="1"/>
-                </ImageBrush.Transform>
-            </ImageBrush>
-        </Grid.Background>
+    Background="Black">
 
+    <Grid Style="{StaticResource MainPageLayoutRootStyle}">
         <Grid >
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Left"
@@ -38,11 +27,7 @@
                         Click="OnRegisterButtonClick"/>
             </StackPanel>
             <TextBlock  Text="{Binding Title}"
-        		        HorizontalAlignment="Center"
-                        Margin="0,150,0,50"
-                        FontSize="80" 
-                        FontWeight="Normal" 
-                        Foreground="White"/>    
+        		        Style="{StaticResource MainPageTitleStyle}"/>    
         </Grid>
     </Grid>
 </Page>

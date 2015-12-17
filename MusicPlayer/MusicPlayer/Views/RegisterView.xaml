@@ -10,9 +10,20 @@
     Background="Black">
 
     <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="RegistrationPageTitle"
+              Grid.Row="0">
+            <TextBlock Text="{Binding Title}"
+                       Style="{StaticResource TitleStyle}"/>
+        </Grid>
         <Grid Name="RegisterPanel"
-              Background="Transparent">
-            <StackPanel VerticalAlignment="Center">
+              Grid.Row="1">
+
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
                 <TextBox Name="username"
                      PlaceholderText="Username"
                      Style="{StaticResource EnterInfo}"
@@ -29,7 +40,6 @@
                     Style="{StaticResource RegularButton}"
                     Click="OnRegisterButtonClick"/>
             </StackPanel>
-
         </Grid>
     </Grid>
 </Page>

@@ -34,12 +34,10 @@
             <TextBlock Text="{Binding PlaylistTitle}"
                        Style="{StaticResource TitleStyle}"/>
             <ListBox ItemsSource="{Binding ContentViewModel.Songs}"
-                     ItemTemplate="{StaticResource SongTemplate}"
-                     Background="Transparent"/>
+                     ItemTemplate="{StaticResource SongTemplate}"/>
         </Grid>
         <Grid Name="AddSong"
-              Grid.Row="2"
-              Background="Transparent">
+              Grid.Row="2">
             <Grid.Resources>
                 <viewModels:PlaylistViewModel x:Key="newSong"/>
             </Grid.Resources>
@@ -64,8 +62,7 @@
                         Content="Save Playlist"
                         Style="{StaticResource RegularButton}"
                         Click="OnSavePlaylistButtonClick"/>
-            </StackPanel>
-            
+            </StackPanel>            
         </Grid>
     </Grid>
 </Page>

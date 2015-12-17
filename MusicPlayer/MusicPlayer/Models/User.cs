@@ -1,9 +1,12 @@
 ﻿namespace MusicPlayer.Models
 {
     using System.Collections.Generic;
+    using SQLite.Net.Attributes;
 
     public class User
     {
+        [PrimaryKey]
+        [AutoIncrement]
         public int Id { get; set; }
 
         public string Username { get; set; }

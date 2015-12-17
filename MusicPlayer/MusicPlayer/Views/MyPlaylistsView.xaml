@@ -12,8 +12,7 @@
     <Page.Resources>
         <DataTemplate x:Key="PlaylistTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding PlaylistTitle}" 
-                           Foreground="White"/>
+                <TextBlock Text="{Binding PlaylistTitle}" />
                 <Button Content="X"/>
             </StackPanel>
         </DataTemplate>
@@ -32,12 +31,10 @@
         <Grid Name="MyPlaylistsContent"
               Grid.Row="1">
             <ListBox ItemsSource="{Binding ContentViewModel.Playlists}"
-                     ItemTemplate="{StaticResource PlaylistTemplate}"
-                     Background="Transparent"/>
+                     ItemTemplate="{StaticResource PlaylistTemplate}"/>
         </Grid>
         <Grid Name="Create"
-              Grid.Row="2"
-              Background="Transparent">
+              Grid.Row="2">
         <StackPanel VerticalAlignment="Bottom">
                 <Button Name="CreateButton" 
                         Content="Create a new Playlist"
