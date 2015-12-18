@@ -23,6 +23,7 @@
 					<Button Name="LogoutButton" 
                         Content="Logout"
                         Style="{StaticResource RegularButton}"
+                        Command="{Binding LogoutUser}" 
                         Click="OnLogoutButtonClick"/>
 					<Button Name="Create" />
 				</StackPanel>
@@ -43,14 +44,7 @@
 	</Page.Resources>
 
 	<Grid Style="{StaticResource LayoutRootStyle}">
-
-
-
-
-
-
-
-
+        
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
 			<RowDefinition Height="10*"/>
@@ -67,13 +61,5 @@
 			<ListBox ItemsSource="{Binding ContentViewModel.Playlists}"
                      ItemTemplate="{StaticResource PlaylistTemplate}"/>
 		</Grid>
-
-
-
-
-
-
-
 	</Grid>
-
 </Page>

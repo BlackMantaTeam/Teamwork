@@ -43,8 +43,9 @@
 
                 <Button Content="Register"
                     Style="{StaticResource RegularButton}"
+                    Command="{Binding RegisterUser}"
                     Click="OnRegisterButtonClick"/>
-                <!--Command="{Binding RegisterUser}"-->
+                
             </StackPanel>
         </Grid>
     </Grid>

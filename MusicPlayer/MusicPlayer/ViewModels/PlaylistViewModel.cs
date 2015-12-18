@@ -57,7 +57,7 @@
             {
                 if (this.addSongCommand == null)
                 {
-                    this.addSongCommand = new DelegateCommand<SongViewModel>((newSong) =>
+                    this.addSongCommand = new DelegateCommandWithParam<SongViewModel>((newSong) =>
                     {
                         this.songs.Add(new SongViewModel(newSong));
                     });
@@ -73,7 +73,7 @@
             {
                 if (this.deleteCommand == null)
                 {
-                    this.deleteCommand = new DelegateCommand<SongViewModel>((song) =>
+                    this.deleteCommand = new DelegateCommandWithParam<SongViewModel>((song) =>
                     {
                         this.songs.Remove(song);
                     });

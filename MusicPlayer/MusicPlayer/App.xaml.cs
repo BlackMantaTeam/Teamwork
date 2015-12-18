@@ -1,5 +1,7 @@
 ﻿namespace MusicPlayer
 {
+    using Models;
+    using Parse;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -33,8 +35,17 @@
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            this.InitializeParse();
         }
 
+        private void InitializeParse()
+        {
+            //ParseObject.RegisterSubclass<User>();
+            ParseObject.RegisterSubclass<Song>();
+            ParseObject.RegisterSubclass<Playlist>();
+
+            ParseClient.Initialize("Oeji5JzcbzxWmpqtvD8SKst09DLrTI5ki6jKLUnQ", "OJ8r8j9nOj8mq41Ab7YfjciHZPV0J04Vo9vtaDzQ");
+        }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

@@ -1,13 +1,30 @@
 ﻿namespace MusicPlayer.Models
 {
+    using Parse;
     using System.Collections.Generic;
 
-    public class Playlist
+    [ParseClassName("Playlist")]
+    public class Playlist: ParseObject
     {
-        public string PlaylistTitle { get; set; }
+        [ParseFieldName("playlistTitle")]
+        public string PlaylistTitle
+        {
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
 
-        public IEnumerable<Song> Songs { get; set; }
+        [ParseFieldName("songs")]
+        public IEnumerable<Song> Songs
+        {
+            get { return GetProperty<IEnumerable<Song>>(); }
+            set { SetProperty<IEnumerable<Song>>(value); }
+        }
 
-        public Genre Genre { get; set; }
+        [ParseFieldName("genre")]
+        public Genre Genre
+        {
+            get { return GetProperty<Genre>(); }
+            set { SetProperty<Genre>(value); }
+        }
     }
 }

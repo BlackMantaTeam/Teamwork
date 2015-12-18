@@ -5,6 +5,9 @@
 
     public class DelegateCommand:ICommand
     {
+        private Func<bool> canExecute;
+        private Action execute;
+
         public DelegateCommand(Action execute, Func<bool> canExecute = null)
         {
             this.execute = execute;
@@ -20,10 +23,7 @@
             return this.canExecute();
         }
 
-        public event EventHandler CanExecuteChanged;
-
-        private Func<bool> canExecute;
-        private Action execute;
+        public event EventHandler CanExecuteChanged;       
 
         public void Execute(object parameter)
         {

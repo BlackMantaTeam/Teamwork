@@ -26,7 +26,7 @@
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = new MainPageViewModel();
+            this.DataContext = new UserViewModel();
         }
 
         private void OnLoginButtonClick(object sender, RoutedEventArgs e)

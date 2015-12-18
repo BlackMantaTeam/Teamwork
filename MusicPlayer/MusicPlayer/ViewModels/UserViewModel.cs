@@ -1,6 +1,10 @@
 ﻿namespace MusicPlayer.ViewModels
 {
     using Commands;
+    using Common;
+    using Models;
+    using Parse;
+    using System;
     using System.Collections.Generic;
     using System.Windows.Input;
     public class UserViewModel : ViewModelBase, IContentViewModel
@@ -11,68 +15,13 @@
         private PlaylistViewModel selectedPlaylist;
         private ICommand registerUserCommand;
         private ICommand loginUserCommand;
+        private ICommand logoutUserCommand;
+        
+        public string Username { get; set; }
 
-        public UserViewModel()
-            : this(string.Empty, string.Empty, string.Empty)
-        {
-        }
+        public string Password { get; set; }
 
-        public UserViewModel(UserViewModel user)
-            : this(user.Username, user.Password, user.ImgUrl)
-        {
-        }
-
-        public UserViewModel(string username, string password, string ImgUrl)
-        {
-            this.Username = username;
-            this.Password = password;
-            this.ImgUrl = ImgUrl;
-            this.Playlists = new List<PlaylistViewModel>();
-        }
-
-        //public int Id { get; set; }
-
-        public string Username
-        {
-            get { return this.username; }
-
-            set
-            {
-                if (value != this.username)
-                {
-                    this.username = value;
-                    this.OnPropertyChanged("Username");
-                }
-            }
-        }
-
-        public string Password
-        {
-            get { return this.password; }
-
-            set
-            {
-                if (value != this.password)
-                {
-                    this.password = value;
-                    this.OnPropertyChanged("Password");
-                }
-            }
-        }
-
-        public string ImgUrl
-        {
-            get { return this.imgUrl; }
-
-            set
-            {
-                if (value != this.imgUrl)
-                {
-                    this.imgUrl = value;
-                    this.OnPropertyChanged("ImgUrl");
-                }
-            }
-        }
+        public string ImgUrl { get; set; }
 
         public IEnumerable<PlaylistViewModel> Playlists { get; set; }
 
@@ -89,5 +38,87 @@
         //    }
         //}
 
+        public ICommand RegisterUser
+        {
+            get
+            {
+                if (this.registerUserCommand == null)
+                {
+                    this.registerUserCommand = new DelegateCommand(this.OnRegisterUserExecute);
+                }
+
+                return this.registerUserCommand;
             }
+        }
+
+        public ICommand LoginUser
+        {
+            get
+            {
+                if (this.loginUserCommand == null)
+                {
+                    this.loginUserCommand = new DelegateCommand(this.OnLogInUserExecute);
+                }
+
+                return this.loginUserCommand;
+            }
+        }
+
+        public ICommand LogoutUser
+        {
+            get
+            {
+                if (this.logoutUserCommand == null)
+                {
+                    this.logoutUserCommand = new DelegateCommand(this.OnLogoutUserExecute);
+                }
+
+                return this.logoutUserCommand;
+            }
+        }
+
+        private async void OnRegisterUserExecute()
+        {
+            Validator.ValidateUsername(this.Username);
+            Validator.ValidateUsername(this.Password);
+
+            var user = new ParseUser()
+            {
+                Username = this.Username,
+                Password = this.Password
+            };
+
+            user["imgUrl"] = this.ImgUrl;
+            user["playlists"] = new List<Song>();
+
+            await user.SignUpAsync();
+        }
+
+        private async void OnLogInUserExecute()
+        {
+            Validator.ValidateUsername(this.Username);
+            Validator.ValidateUsername(this.Password);
+
+            await ParseUser.LogInAsync(this.Username, this.Password);
+
+            //try
+            //{
+            //    await ParseUser.LogInAsync(this.Username, this.Password);
+            //}
+            //catch (Exception e)
+            //{
+            //    //invalidLoginLabel.Text = "Bad Username/Password!";
+            //}
+        }
+
+        private async void OnLogoutUserExecute()
+        {
+            await ParseUser.LogOutAsync();
+            //ParseUser currentUser = ParseUser..getCurrentUser();
+        }
+        //public async Task LoadPlaylists()
+        //{
+
+        //}
+    }
 }

@@ -3,12 +3,12 @@
     using System;
     using System.Windows.Input;
 
-    public class DelegateCommand<T> : ICommand
+    public class DelegateCommandWithParam<T> : ICommand
     {
         private Action<T> execute;
         private Func<bool> canExecute;
 
-        public DelegateCommand(Action<T> execute, Func<bool> canExecute = null)
+        public DelegateCommandWithParam(Action<T> execute, Func<bool> canExecute = null)
         {
             this.execute = execute;
             this.canExecute = canExecute;

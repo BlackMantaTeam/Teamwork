@@ -1,13 +1,36 @@
 ﻿namespace MusicPlayer.Models
 {
-    public class Song
+    using Parse;
+
+    [ParseClassName("Song")]
+    public class Song: ParseObject
     {
-        public int Id { get; set; }
+        //[ParseFieldName("id")]
+        //public int Id
+        //{
+        //    get { return GetProperty<int>(); }
+        //    set { SetProperty<int>(value); }
+        //}
 
-        public string SongTitle { get; set; }
+        [ParseFieldName("songTitle")]
+        public string SongTitle
+        {
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
 
-        public string Url { get; set; }
+        [ParseFieldName("url")]
+        public string Url
+        {
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
 
-        public Genre Genre { get; set; }
+        [ParseFieldName("genre")]
+        public Genre Genre
+        {
+            get { return GetProperty<Genre>(); }
+            set { SetProperty<Genre>(value); }
+        }
     }
 }

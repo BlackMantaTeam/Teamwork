@@ -1,5 +1,6 @@
 ﻿namespace MusicPlayer.Views
 {
+    using Parse;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -28,9 +29,8 @@
         public RegisterView()
         {
             this.InitializeComponent();
-            var contentViewModel = new UserViewModel();
 
-            this.DataContext = new RegisterPageViewModel(contentViewModel);
+            this.DataContext = new UserViewModel();
         }
 
         private void OnRegisterButtonClick(object sender, RoutedEventArgs e)
