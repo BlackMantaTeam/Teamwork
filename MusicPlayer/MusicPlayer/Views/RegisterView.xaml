@@ -31,13 +31,20 @@
                      PlaceholderText="Password"
                      Style="{StaticResource EnterInfo}"
                      Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <StackPanel Orientation="Horizontal">
                 <TextBox Name="imgUrl"
                      PlaceholderText="Image URL"
                      Style="{StaticResource EnterInfo}"
                      Text="{Binding ImgUrl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <Image Source="ms-appx:///Assets/STbtn1.jpg"
+                       Tapped="OnShootButtonClick"
+                       Width="30"/>
+                </StackPanel>
+
                 <Button Content="Register"
                     Style="{StaticResource RegularButton}"
                     Click="OnRegisterButtonClick"/>
+                <!--Command="{Binding RegisterUser}"-->
             </StackPanel>
         </Grid>
     </Grid>

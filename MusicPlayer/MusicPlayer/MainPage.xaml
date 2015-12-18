@@ -5,21 +5,29 @@
     xmlns:local="using:MusicPlayer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MusicPlayer.ViewModels"
     mc:Ignorable="d">
 
-	<Grid Style="{StaticResource MainPageLayoutRootStyle}">
+    <Page.Resources>
+        <viewModels:UserViewModel x:Key="UserViewModel" />
+    </Page.Resources>
+	<Grid Style="{StaticResource MainPageLayoutRootStyle}"
+          DataContext="{Binding Source={StaticResource UserViewModel}}">
 		<StackPanel Orientation="Vertical">
 			<StackPanel	Orientation="Vertical">
 				<TextBox PlaceholderText="Username"
-                     Style="{StaticResource EnterInfo}"/>
+                         Style="{StaticResource EnterInfo}"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 				<TextBox PlaceholderText="Password"
-                     Style="{StaticResource EnterInfo}"/>
+                     Style="{StaticResource EnterInfo}"
+                         Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
 				<Button Name="LoginButton"
                     Content="Login"
                     Style="{StaticResource RegularButton}"
 					Background="Salmon"
+                    Command="{Binding LoginUser}"
 					Click="OnLoginButtonClick"/>
 				<Button Name="RegisterButton"
                     Content="Register"

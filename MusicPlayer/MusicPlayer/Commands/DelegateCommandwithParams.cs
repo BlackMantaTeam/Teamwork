@@ -3,13 +3,18 @@
     using System;
     using System.Windows.Input;
 
-    public class DelegateCommand:ICommand
+    public class DelegateCommand<T> : ICommand
     {
-        public DelegateCommand(Action execute, Func<bool> canExecute = null)
+        private Action<T> execute;
+        private Func<bool> canExecute;
+
+        public DelegateCommand(Action<T> execute, Func<bool> canExecute = null)
         {
             this.execute = execute;
             this.canExecute = canExecute;
         }
+
+        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -17,18 +22,13 @@
             {
                 return true;
             }
+
             return this.canExecute();
         }
 
-        public event EventHandler CanExecuteChanged;
-
-        private Func<bool> canExecute;
-        private Action execute;
-
         public void Execute(object parameter)
         {
-            this.execute();
+            this.execute((T)parameter);
         }
-
     }
 }

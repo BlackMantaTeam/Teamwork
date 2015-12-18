@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommandwithParams.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -138,12 +139,7 @@
     <None Include="MusicPlayer_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Background.png" />
-    <Content Include="Assets\Background1.png" />
-    <Content Include="Assets\Background2.jpg" />
-    <Content Include="Assets\images %282%29.png" />
-    <Content Include="Assets\images %283%29.png" />
-    <Content Include="Assets\images %287%29.png" />
+    <Content Include="Assets\STbtn1.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

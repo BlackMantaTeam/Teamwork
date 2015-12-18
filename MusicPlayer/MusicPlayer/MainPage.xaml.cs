@@ -15,7 +15,8 @@
     using Windows.UI.Xaml.Data;
     using Windows.UI.Xaml.Input;
     using Windows.UI.Xaml.Media;
-    using Windows.UI.Xaml.Navigation;    
+    using Windows.UI.Xaml.Navigation;
+    using MusicPlayer.Commands;
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
