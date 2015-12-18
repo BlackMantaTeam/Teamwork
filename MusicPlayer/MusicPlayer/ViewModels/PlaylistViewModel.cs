@@ -1,13 +1,13 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Windows.Input;
-    using Common;
-    using Models;
+	using System.Collections.Generic;
+	using System.Collections.ObjectModel;
+	using System.Windows.Input;
+	using Commands;
+	using Models;
+	using Extensions;
 
-    public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
+	public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
     {
         private ObservableCollection<SongViewModel> songs;
         private ICommand addSongCommand;

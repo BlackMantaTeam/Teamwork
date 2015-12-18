@@ -6,14 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:MusicPlayer.ViewModels"
-    mc:Ignorable="d"
-    Background="Black">
+    mc:Ignorable="d">
 
     <Page.Resources>
         <DataTemplate x:Key="SongTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding SongTitle}" 
-                           Foreground="White"/>
+                <TextBlock Text="{Binding SongTitle}" />
                 <Button Content="X"/>
             </StackPanel>
         </DataTemplate>

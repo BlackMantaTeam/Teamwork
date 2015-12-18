@@ -1,12 +1,6 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    public class CreatePlaylistPageViewModel : ViewModelBase, IPageViewModel
+	public class CreatePlaylistPageViewModel : ViewModelBase, IContentViewModel
     {
         private readonly string pageTitle = "Create a Playlist";
 

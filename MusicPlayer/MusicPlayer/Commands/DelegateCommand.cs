@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer.Common
+﻿namespace MusicPlayer.Commands
 {
     using System;
     using System.Windows.Input;

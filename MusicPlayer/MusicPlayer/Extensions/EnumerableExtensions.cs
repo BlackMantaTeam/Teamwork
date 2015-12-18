@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer.Common
+﻿namespace MusicPlayer.Extensions
 {
     using System;
     using System.Collections.Generic;

@@ -5,29 +5,30 @@
     xmlns:local="using:MusicPlayer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="Black">
+    mc:Ignorable="d">
 
-    <Grid Style="{StaticResource MainPageLayoutRootStyle}">
-        <Grid >
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                <TextBox PlaceholderText="Username"
-                         Style="{StaticResource EnterInfo}"/>
-                <TextBox PlaceholderText="Password"
-                         Style="{StaticResource EnterInfo}"/>
-                <Button Name="LoginButton" 
-                        Content="Login"
-                        Style="{StaticResource RegularButton}"
-                        Click="OnLoginButtonClick"/>
-                <Button Name="RegisterButton"
-                        Content="Register"
-                        Style="{StaticResource RegularButton}"
-                        Click="OnRegisterButtonClick"/>
-            </StackPanel>
-            <TextBlock  Text="{Binding Title}"
-        		        Style="{StaticResource MainPageTitleStyle}"/>    
-        </Grid>
-    </Grid>
+	<Grid Style="{StaticResource MainPageLayoutRootStyle}">
+		<StackPanel Orientation="Vertical">
+			<StackPanel	Orientation="Vertical">
+				<TextBox PlaceholderText="Username"
+                     Style="{StaticResource EnterInfo}"/>
+				<TextBox PlaceholderText="Password"
+                     Style="{StaticResource EnterInfo}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Button Name="LoginButton"
+                    Content="Login"
+                    Style="{StaticResource RegularButton}"
+					Background="Salmon"
+					Click="OnLoginButtonClick"/>
+				<Button Name="RegisterButton"
+                    Content="Register"
+                    Style="{StaticResource RegularButton}"
+					Background="Salmon"
+                    Click="OnRegisterButtonClick"/>
+			</StackPanel>
+			<!--<TextBlock  Text="{Binding Title}"
+        		        Style="{StaticResource MainPageTitleStyle}"/>-->
+		</StackPanel>
+	</Grid>
 </Page>
