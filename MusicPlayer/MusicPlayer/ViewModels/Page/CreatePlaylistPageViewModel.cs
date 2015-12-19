@@ -1,6 +1,7 @@
-﻿namespace MusicPlayer.ViewModels
+﻿namespace MusicPlayer.Page.ViewModels
 {
-	using MusicPlayer.Contracts;
+	using Contracts;
+	using MusicPlayer.ViewModels;
 
 	public class CreatePlaylistPageViewModel : ViewModelBase, IContentViewModel
     {

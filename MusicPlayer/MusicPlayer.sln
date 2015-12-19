@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer", "MusicPlayer\MusicPlayer.csproj", "{34A4DA1D-895F-484C-8F7B-62B6F0698CF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer.UI", "MusicPlayer\MusicPlayer.UI.csproj", "{34A4DA1D-895F-484C-8F7B-62B6F0698CF2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer.Web", "MusicPlayer.Web\MusicPlayer.Web.csproj", "{ED83E328-4BD3-4B7B-B3E4-6A8FAA74E0F6}"
 EndProject
