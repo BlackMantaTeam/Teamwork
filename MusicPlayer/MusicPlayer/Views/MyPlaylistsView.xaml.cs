@@ -15,16 +15,14 @@
 	using Windows.UI.Xaml.Input;
 	using Windows.UI.Xaml.Media;
 	using Windows.UI.Xaml.Navigation;
+	using Contracts;
 
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
 	public sealed partial class MyPlaylistsView : Page
 	{
 		public MyPlaylistsView()
 		{
 			this.InitializeComponent();
-			var contentViewModel = new UserViewModel();
+			var contentViewModel = new MyPlaylistContentViewModel();
 
 			//TODO ToDetele
 			contentViewModel.Playlists = new List<PlaylistViewModel>()
@@ -52,12 +50,11 @@
 				new PlaylistViewModel("Playlist1"),
 				new PlaylistViewModel("Playlist1")
 			};
+
 			var myPlaylistContentViewModel = new MyPlaylistContentViewModel(contentViewModel);
-			this.DataContext = myPlaylistContentViewModel;
-			this.ContentViewModel = myPlaylistContentViewModel;
 		}
 
-		public IContentViewModel ContentViewModel { get; private set; }
+		public IPageViewModel ContentViewModel { get; private set; }
 
 		private void OnCreateButtonClick(object sender, RoutedEventArgs e)
 		{

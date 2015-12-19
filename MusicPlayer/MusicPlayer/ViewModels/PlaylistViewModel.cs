@@ -6,6 +6,7 @@
 	using Commands;
 	using Models;
 	using Extensions;
+	using Contracts;
 
 	public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
     {

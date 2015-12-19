@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer.ViewModels
+﻿namespace MusicPlayer.Contracts
 {
     public interface IContentViewModel
     {

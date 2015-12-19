@@ -1,10 +1,12 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    public class RegisterPageViewModel : ViewModelBase, IPageViewModel
-    {
-        private readonly string pageTitle = "Register";
+	using MusicPlayer.Contracts;
 
-        public RegisterPageViewModel(IContentViewModel contentViewModel)
+	public class CreatePlaylistPageViewModel : ViewModelBase, IContentViewModel
+    {
+        private readonly string pageTitle = "Create a Playlist";
+
+        public CreatePlaylistPageViewModel(IContentViewModel contentViewModel)
         {
             this.ContentViewModel = contentViewModel;
         }
