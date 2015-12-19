@@ -34,7 +34,8 @@
 	<Page.Resources>
 		<DataTemplate x:Key="PlaylistTemplate">
 			<StackPanel Orientation="Horizontal">
-				<TextBlock Text="{Binding PlaylistTitle}" />
+				<TextBlock Text="{Binding PlaylistTitle}" 
+                           Tapped="TextBlock_Tapped"/>
 				<AppBarButton Icon="Delete"
 							  CommandParameter="{Binding}"
 							  Command="{Binding ElementName=pageMyPlaylists,

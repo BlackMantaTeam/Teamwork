@@ -37,6 +37,10 @@
         {
             Frame.Navigate(typeof(MyPlaylistsView));
         }
+        private void OnCancelButtonClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
 
         private async void OnShootButtonClick(object sender, RoutedEventArgs e)
         {
