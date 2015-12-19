@@ -68,5 +68,10 @@
 		{
 			Frame.Navigate(typeof(MainPage));
 		}
-	}
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PlayView));
+        }
+    }
 }

@@ -36,16 +36,15 @@
                      PlaceholderText="Image URL"
                      Style="{StaticResource EnterInfo}"
                      Text="{Binding ImgUrl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <Image Source="ms-appx:///Assets/STbtn1.jpg"
-                       Tapped="OnShootButtonClick"
-                       Width="30"/>
+                    <AppBarButton Icon="Camera"  Click="OnShootButtonClick"/>
                 </StackPanel>
-
+                <StackPanel Orientation="Horizontal">
                 <Button Content="Register"
                     Style="{StaticResource RegularButton}"
                     Command="{Binding RegisterUser}"
                     Click="OnRegisterButtonClick"/>
-                
+                <AppBarButton Icon="Cancel"  Click="OnCancelButtonClick"/>
+            </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>

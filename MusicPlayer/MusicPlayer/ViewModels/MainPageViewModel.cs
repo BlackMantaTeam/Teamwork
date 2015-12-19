@@ -1,6 +1,6 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase, IPageViewModel
+    public class MainPageViewModel : ViewModelBase
     {
         private readonly string pageTitle = "Music Player";
 
