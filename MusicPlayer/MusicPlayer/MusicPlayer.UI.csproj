@@ -115,7 +115,7 @@
     <Compile Include="Contracts\IContentViewModel.cs" />
     <Compile Include="Contracts\IPlaylistsViewModel.cs" />
     <Compile Include="ViewModels\Page\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\Page\MyPlaylistPageViewModel.cs" />
+    <Compile Include="ViewModels\Content\MyPlaylistContentViewModel.cs" />
     <Compile Include="ViewModels\PlaylistViewModel.cs" />
     <Compile Include="ViewModels\Page\RegisterPageViewModel.cs" />
     <Compile Include="ViewModels\SongViewModel.cs" />
@@ -182,6 +182,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+<<<<<<< HEAD:MusicPlayer/MusicPlayer/MusicPlayer.csproj
   <ItemGroup>
     <Folder Include="ViewModels\Content\" />
   </ItemGroup>
@@ -190,6 +191,9 @@
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> origin/master:MusicPlayer/MusicPlayer/MusicPlayer.UI.csproj
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
