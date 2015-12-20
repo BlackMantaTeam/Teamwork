@@ -48,7 +48,6 @@
 				<ListView Name="MenuItemsListView"
 						  IsItemClickEnabled="True"
 						  ItemClick="MenuItemsListView_ItemClick"
-                          IsItemClickEnabled="True" 
                           ItemsSource="{Binding ContentViewModel.Playlists}" >
 					<ListView.ItemTemplate>
 						<DataTemplate x:DataType="data:SoundViewModel">
@@ -80,16 +79,18 @@
 					<TextBlock Name="CategoryTextBlock" Text="All Sounds" FontSize="24" />
 
 					<GridView Grid.Row="1" 
-                              Name="SoundGridView"
+                              x:Name="SoundGridView"
                               SelectionMode="None"
                               IsItemClickEnabled="True"
-                              AllowDrop="True"
-                              ItemsSource="{Binding ContentViewModel.Songs}" >
+                              AllowDrop="True" 
+							  ItemsSource="{Binding ContentViewModel.CurrentPlaylist}" >
+
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">
 								<Image Name="MyImage" Height="112" Width="101" Source="{Binding ImageSource}" />
 							</DataTemplate>
 						</GridView.ItemTemplate>
+
 					</GridView>
 
 				</Grid>

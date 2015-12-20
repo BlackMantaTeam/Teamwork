@@ -36,6 +36,8 @@
 			}
 		}
 
+		public PlaylistViewModel CurrentPlaylist { get; set; }
+
 		public ICommand Save
 		{
 			get

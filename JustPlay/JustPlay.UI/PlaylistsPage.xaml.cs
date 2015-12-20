@@ -47,23 +47,23 @@ namespace JustPlay.UI
 				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png")
 			};
 
+			this.ContentViewModel = playlistsContent;
+
 			var playlistDataContext = new PlaylistsPageViewModel(playlistsContent);
 			this.DataContext = playlistDataContext;
 
 			BackButton.Visibility = Visibility.Collapsed;
 		}
 
+		public PlaylistsContentViewModel ContentViewModel { get; private set; }
+
 		private void MenuItemsListView_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			var currentPlaylist = (PlaylistViewModel)e.ClickedItem;
 
-			// Filter on category
-			CategoryTextBlock.Text = currentPlaylist.Title;
+			this.ContentViewModel.CurrentPlaylist = currentPlaylist;
 
-			this.
-
-			//SoundManager.GetSoundsByCategory(Sounds, menuItem.Category);
-			BackButton.Visibility = Visibility.Visible;
+			//BackButton.Visibility = Visibility.Visible;
 		}
 	}
 }
