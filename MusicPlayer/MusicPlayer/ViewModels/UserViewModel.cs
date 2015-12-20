@@ -176,7 +176,7 @@
             //    PlaylistTitle = model.PlaylistTitle,
             //    Genre = model.Genre,
             //    Songs = songsToAdd
-            });
+            //});
         }
     }
 }
