@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JustPlay.UI.Contracts
+﻿namespace JustPlay.UI.Contracts
 {
-	public interface IContentViewModel
-	{
-	}
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public interface IContentViewModel
+    {
+    }
 }

@@ -1,25 +1,25 @@
 ﻿namespace JustPlay.UI.ViewModels.Pages
 {
-	using Contracts;
+    using Contracts;
 
-	public abstract class PageViewModelBase : ViewModelBase, IPageViewModel
-	{
-		protected readonly string title;
+    public abstract class PageViewModelBase : ViewModelBase, IPageViewModel
+    {
+        protected readonly string title;
 
-		protected PageViewModelBase(string title, IContentViewModel content)
-		{
-			this.title = title;
-			this.ContentViewModel = content;
-		}
+        protected PageViewModelBase(string title, IContentViewModel content)
+        {
+            this.title = title;
+            this.ContentViewModel = content;
+        }
 
-		public IContentViewModel ContentViewModel { get; set; }
+        public IContentViewModel ContentViewModel { get; set; }
 
-		public string Title
-		{
-			get
-			{
-				return this.title;
-			}
-		}
-	}
+        public string Title
+        {
+            get
+            {
+                return this.title;
+            }
+        }
+    }
 }
