@@ -38,10 +38,10 @@ namespace JustPlay.UI
 			SoundManager.GetAllSounds(Sounds);
 
 			MenuItems = new List<MenuItemViewModel>();
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/animals.png", Category = SoundCategory.Animals });
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/cartoon.png", Category = SoundCategory.Cartoons });
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/taunt.png", Category = SoundCategory.Taunts });
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/warning.png", Category = SoundCategory.Warnings });
+			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/animals.png", Category = "afasdfasf" });
+			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/cartoon.png", Category = "Pop"});
+			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/taunt.png", Category = "Name"});
+			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/warning.png", Category = "Britain"});
 
 			BackButton.Visibility = Visibility.Collapsed;
 		}

@@ -92,7 +92,7 @@
                               ItemClick="SoundGridView_ItemClick">
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">
-								<Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImageFile}" />
+								<Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImageSource}" />
 							</DataTemplate>
 						</GridView.ItemTemplate>
 					</GridView>

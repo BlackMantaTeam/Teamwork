@@ -9,6 +9,6 @@
 	public class MenuItemViewModel
 	{
 		public string IconFile { get; set; }
-		public SoundCategory Category { get; set; }
+		public string Category { get; set; }
 	}
 }
