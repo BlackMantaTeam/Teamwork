@@ -5,7 +5,7 @@
     public class SongViewModel : ViewModelBase
     {
         public SongViewModel()
-        : this(string.Empty, string.Empty, Genre.Miscellaneous)
+        : this(string.Empty, string.Empty, string.Empty)
         {
         }
 
@@ -14,7 +14,7 @@
         {
         }
 
-        public SongViewModel(string title, string url, Genre genre)
+        public SongViewModel(string title, string url, string genre)
         {
             this.SongTitle = title;
             this.Url = url;
@@ -27,7 +27,7 @@
 
         public string Url { get; set; }
 
-        public Genre Genre { get; set; }
+        public string Genre { get; set; }
 
 
         private async void OnSaveSongExecute(object parameters)

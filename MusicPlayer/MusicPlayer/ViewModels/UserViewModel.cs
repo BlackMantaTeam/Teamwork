@@ -9,6 +9,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Input;
     using Views;
     using Windows.UI.Xaml.Controls;
@@ -23,6 +24,11 @@
         private ICommand logoutUserCommand;
         private ICommand loadPlaylistsCommand;
         private ObservableCollection<PlaylistViewModel> playlists;
+
+        public UserViewModel()
+        {
+            //LoadPlaylists();
+        }
 
         public string Username { get; set; }
 
@@ -121,7 +127,8 @@
 
         private async void OnLoadPlaylistsExecute()
         {
-            var userPlaylists = await ParseObject.GetQuery("Playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+            //var userPlaylists = await ParseObject.GetQuery("Playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+            //this.Playlists.Add
         }
 
         private async void OnRegisterUserExecute()
@@ -154,13 +161,22 @@
             var currentUser = ParseUser.CurrentUser;
         }
 
-        private async void OnSavePlaylistExecute()
+        private async void LoadPlaylists()
         {
-            
+            ////var userPlaylists = await ParseObject.GetQuery("playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+            //var playlists = await new ParseQuery<Playlist>().FindAsync();
+            //ObservableCollection<SongViewModel> songsToAdd = new ObservableCollection<SongViewModel>();
+            //playlists.Select(x=>x.Songs).ForEach(s => s.ForEach(j=>songsToAdd.Add(new SongViewModel(
+            //    j.SongTitle,
+            //    j.Url,
+            //    j.Genre.ToString()
+            //))));
+            //this.Playlists = playlists.AsQueryable().Select(model => new PlaylistViewModel
+            //{                
+            //    PlaylistTitle = model.PlaylistTitle,
+            //    Genre = model.Genre,
+            //    Songs = songsToAdd
+            });
         }
-        //public async Task LoadPlaylists()
-        //{
-
-        //}
     }
 }

@@ -19,6 +19,7 @@
         public PlaylistViewModel()
             : this(string.Empty)
         {
+            this.OnLoadPlaylistsExecute();
         }
 
         public PlaylistViewModel(string title)
@@ -41,6 +42,8 @@
         public string PlaylistTitle { get; set; }
 
         public string Genre { get; set; }
+
+        public ParseUser User { get; set; }
 
         public IEnumerable<SongViewModel> Songs
         {
@@ -126,7 +129,8 @@
 
         private async void OnLoadPlaylistsExecute()
         {
-            var userPlaylists = await ParseObject.GetQuery("Playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+            var userPlaylists = await ParseObject.GetQuery("playlist").WhereEqualTo("pointer", ParseUser.CurrentUser).FindAsync();
+            
         }
 
         private async void OnSavePlaylistExecute()
@@ -141,7 +145,8 @@
             {
                 PlaylistTitle = this.PlaylistTitle,
                 Songs = songsToAdd,
-                Genre = this.Genre.ToString()
+                Genre = this.Genre.ToString(),
+                User = ParseUser.CurrentUser
             };
 
             playlist["user"] = ParseUser.CurrentUser;
