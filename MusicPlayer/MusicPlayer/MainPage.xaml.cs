@@ -1,5 +1,5 @@
 ﻿namespace MusicPlayer
-{    
+{
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -17,16 +17,20 @@
     using Windows.UI.Xaml.Media;
     using Windows.UI.Xaml.Navigation;
     using MusicPlayer.Commands;
+    using System.Threading.Tasks;
+    using SQLite.Net.Async;
+    using Windows.Storage;
+    using SQLite.Net;
+    using SQLite.Net.Platform.WinRT;
+    using System.Text;
+    using Models;
 
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = new UserViewModel();
+            this.DataContext = new UserViewModel();            
         }
 
         private void OnLoginButtonClick(object sender, RoutedEventArgs e)

@@ -1,16 +1,24 @@
 ﻿namespace MusicPlayer.Models
 {
     using Parse;
-
+    using SQLite.Net.Attributes;
     [ParseClassName("Song")]
-    public class Song: ParseObject
+    public class Song : ParseObject
     {
-        //[ParseFieldName("id")]
-        //public int Id
-        //{
-        //    get { return GetProperty<int>(); }
-        //    set { SetProperty<int>(value); }
-        //}
+        public Song()
+            : this(string.Empty, string.Empty, string.Empty)
+        {
+        }
+        public Song(string title, string url, string genre)
+        {
+            this.SongTitle = title;
+            this.Url = url;
+            this.Genre = genre;
+        }
+        [PrimaryKey]
+        [AutoIncrement]
+        [ParseFieldName("id")]
+        public int Id { get; set; }
 
         [ParseFieldName("songTitle")]
         public string SongTitle
@@ -27,10 +35,15 @@
         }
 
         [ParseFieldName("genre")]
-        public Genre Genre
+        public string Genre
         {
-            get { return GetProperty<Genre>(); }
-            set { SetProperty<Genre>(value); }
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
         }
+
+        //public override string ToString()
+        //{
+        //    return $"Song: {this.SongTitle}; Genre: {this.Genre}; Url:{this.Url}";
+        //}
     }
 }

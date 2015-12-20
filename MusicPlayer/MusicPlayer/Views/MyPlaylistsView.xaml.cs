@@ -19,44 +19,38 @@
 
 	public sealed partial class MyPlaylistsView : Page
 	{
-		public MyPlaylistsView()
+        public MyPlaylistsView()
 		{
 			this.InitializeComponent();
-			var contentViewModel = new MyPlaylistContentViewModel();
+            //this.DataContext = new UserViewModel();
 
-			//TODO ToDetele
-			contentViewModel.Playlists = new List<PlaylistViewModel>()
-			{
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1"),
-				new PlaylistViewModel("Playlist1")
-			};
+            //this.DataContext = new MyPlaylistContentViewModel(contentViewModel);
+            var contentViewModel = new UserViewModel();
+            //TODO ToDetele
+            contentViewModel.Playlists = new List<PlaylistViewModel>()
+            {
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1"),
+                new PlaylistViewModel("Playlist1")
+            };
 
-			var myPlaylistContentViewModel = new MyPlaylistContentViewModel(contentViewModel);
-		}
+            var myPlaylistContentViewModel = new MyPlaylistContentViewModel(contentViewModel);
+            this.DataContext = myPlaylistContentViewModel;
+            this.ContentViewModel = myPlaylistContentViewModel;
+        }
 
-		public IPageViewModel ContentViewModel { get; private set; }
+        public IContentViewModel ContentViewModel { get; private set; }
 
-		private void OnCreateButtonClick(object sender, RoutedEventArgs e)
+        //protected override async void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    this.contentViewModel.PropertyChanged
+        //}
+
+        private void OnCreateButtonClick(object sender, RoutedEventArgs e)
 		{
 			Frame.Navigate(typeof(CreatePlaylistView));
 		}

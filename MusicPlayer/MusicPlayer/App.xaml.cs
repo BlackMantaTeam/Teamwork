@@ -2,15 +2,21 @@
 {
     using Models;
     using Parse;
+    using SQLite.Net;
+    using SQLite.Net.Async;
+    using SQLite.Net.Platform.WinRT;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Runtime.InteropServices.WindowsRuntime;
+    using System.Text;
+    using System.Threading.Tasks;
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
     using Windows.Foundation;
     using Windows.Foundation.Collections;
+    using Windows.Storage;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Controls.Primitives;
@@ -36,15 +42,83 @@
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
             this.InitializeParse();
+            //this.InitAsync();
+            //this.DbL = this.GetDbConnectionAsync();
+            
         }
-
+        public SQLiteAsyncConnection DbL { get; set; }
         private void InitializeParse()
         {
             //ParseObject.RegisterSubclass<User>();
             ParseObject.RegisterSubclass<Song>();
             ParseObject.RegisterSubclass<Playlist>();
 
-            ParseClient.Initialize("Oeji5JzcbzxWmpqtvD8SKst09DLrTI5ki6jKLUnQ", "OJ8r8j9nOj8mq41Ab7YfjciHZPV0J04Vo9vtaDzQ");
+            ParseClient.Initialize("Oeji5JzcbzxWmpqtvD8SKst09DLrTI5ki6jKLUnQ", "OJ8r8j9nOj8mq41Ab7YfjciHZPV0J04Vo9vtaDzQ");            
+        }
+
+        private async void AddNewItemButtonClick(object sender, RoutedEventArgs e)
+        {
+
+            //var price = 0;
+            //int.TryParse(this.PriceTextBox.Text, out price);
+            //var item = new User
+            //{
+            //    Name = this.NameTextBox.Text,
+            //    Price = price
+            //};
+
+           // await this.InsertUserAsync(item);
+        }
+
+        private async void GetAllButtonClick(object sender, RoutedEventArgs e)
+        {
+            //var userData = await this.GetAllUserAsync();
+            //var userDataAsString = new StringBuilder();
+            //foreach (var userItem in userData)
+            //{
+            //    userDataAsString.AppendLine(userItem.ToString());
+            //}
+
+            //this.AllItemsTextBlock.Text = userDataAsString.ToString();
+        }
+
+        private SQLiteAsyncConnection GetDbConnectionAsync()
+        {
+            var dbFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            var connectionFactory =
+                new Func<SQLiteConnectionWithLock>(
+                    () =>
+                    new SQLiteConnectionWithLock(
+                        new SQLitePlatformWinRT(),
+                        new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
+
+            var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
+
+            return asyncConnection;
+        }
+
+        private async void InitAsync()
+        {
+            var connection = this.GetDbConnectionAsync();
+
+            await connection.CreateTableAsync<Song>();
+            await connection.CreateTableAsync<Playlist>();
+            await connection.CreateTableAsync<User>();
+        }
+
+        private async Task<int> InsertUserAsync(User item)
+        {
+            var connection = this.GetDbConnectionAsync();
+            var result = await connection.InsertAsync(item);
+            return result;
+        }
+
+        private async Task<List<User>> GetAllUserAsync()
+        {
+            var connection = this.GetDbConnectionAsync();
+            var result = await connection.Table<User>().ToListAsync();
+            return result;
         }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

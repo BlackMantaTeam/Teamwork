@@ -2,11 +2,16 @@
 {
     using Commands;
     using Common;
+    using Contracts;
+    using Extensions;
     using Models;
     using Parse;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Windows.Input;
+    using Views;
+    using Windows.UI.Xaml.Controls;
     public class UserViewModel : ViewModelBase, IContentViewModel
     {
         private string username;
@@ -16,14 +21,38 @@
         private ICommand registerUserCommand;
         private ICommand loginUserCommand;
         private ICommand logoutUserCommand;
-        
+        private ICommand loadPlaylistsCommand;
+        private ObservableCollection<PlaylistViewModel> playlists;
+
         public string Username { get; set; }
 
         public string Password { get; set; }
 
         public string ImgUrl { get; set; }
 
-        public IEnumerable<PlaylistViewModel> Playlists { get; set; }
+        public IEnumerable<PlaylistViewModel> Playlists
+        {
+            get
+            {
+                if (this.playlists == null)
+                {
+                    this.playlists = new ObservableCollection<PlaylistViewModel>();
+                }
+
+                return this.playlists;
+            }
+
+            set
+            {
+                if (this.playlists == null)
+                {
+                    this.playlists = new ObservableCollection<PlaylistViewModel>();
+                }
+
+                this.playlists.Clear();
+                value.ForEach(this.playlists.Add);
+            }
+        }
 
         //public PlaylistViewModel SelectedPlaylist
         //{
@@ -77,6 +106,24 @@
             }
         }
 
+        public ICommand LoadPlaylist
+        {
+            get
+            {
+                if (this.loadPlaylistsCommand == null)
+                {
+                    this.loadPlaylistsCommand = new DelegateCommand(this.OnLoadPlaylistsExecute);
+                }
+
+                return this.loadPlaylistsCommand;
+            }
+        }
+
+        private async void OnLoadPlaylistsExecute()
+        {
+            var userPlaylists = await ParseObject.GetQuery("Playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+        }
+
         private async void OnRegisterUserExecute()
         {
             Validator.ValidateUsername(this.Username);
@@ -89,7 +136,7 @@
             };
 
             user["imgUrl"] = this.ImgUrl;
-            user["playlists"] = new List<Song>();
+            user["playlists"] = this.Playlists;
 
             await user.SignUpAsync();
         }
@@ -98,23 +145,18 @@
         {
             Validator.ValidateUsername(this.Username);
             Validator.ValidateUsername(this.Password);
-
             await ParseUser.LogInAsync(this.Username, this.Password);
-
-            //try
-            //{
-            //    await ParseUser.LogInAsync(this.Username, this.Password);
-            //}
-            //catch (Exception e)
-            //{
-            //    //invalidLoginLabel.Text = "Bad Username/Password!";
-            //}
         }
 
         private async void OnLogoutUserExecute()
         {
             await ParseUser.LogOutAsync();
-            //ParseUser currentUser = ParseUser..getCurrentUser();
+            var currentUser = ParseUser.CurrentUser;
+        }
+
+        private async void OnSavePlaylistExecute()
+        {
+            
         }
         //public async Task LoadPlaylists()
         //{

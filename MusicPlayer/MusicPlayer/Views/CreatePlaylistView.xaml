@@ -6,61 +6,116 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:MusicPlayer.ViewModels"
+    Name="CreatePlaylistPage"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="SongTemplate">
+        <DataTemplate x:Key="songTemplate">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding SongTitle}" />
-                <Button Content="X"/>
+                <TextBlock Text="{Binding Genre}" />
+                <AppBarButton Icon="Delete"
+                              CommandParameter="{Binding}"
+                              Command="{Binding ElementName=CreatePlaylistPage,Path=DataContext.Delete}"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
     <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
+
+        <!--page titel-->
         <Grid Name="CreatePlaylistPageTitle"
               Grid.Row="0">
             <TextBlock Text="{Binding Title}"
                        Style="{StaticResource TitleStyle}"/>
         </Grid>
-        <Grid Name="NewPlaylistContent"
+
+        <Grid Name="newPlaylistContent"
               Grid.Row="1">
-            <TextBlock Text="{Binding PlaylistTitle}"
+            <TextBlock Text="{Binding ElementName=playlistTitle,Path=Text}"
                        Style="{StaticResource TitleStyle}"/>
-            <ListBox ItemsSource="{Binding ContentViewModel.Songs}"
-                     ItemTemplate="{StaticResource SongTemplate}"/>
+            <ListBox ItemsSource="{Binding Songs}"
+                     ItemTemplate="{StaticResource songTemplate}"/>
         </Grid>
-        <Grid Name="AddSong"
+        <Grid Name="newPlaylistElements"
               Grid.Row="2">
             <Grid.Resources>
-                <viewModels:PlaylistViewModel x:Key="newSong"/>
+                <viewModels:PlaylistViewModel x:Key="newPlaylist"/>
             </Grid.Resources>
-            <StackPanel VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Name="addPlaylistTitle"
+              Grid.Row="0">
+                <StackPanel>
                 <TextBox Name="playlistTitle"
                      PlaceholderText="Playlist Title"
                      Style="{StaticResource EnterInfo}"
                      Text="{Binding PlaylistTitle, Mode=TwoWay}"/>
-                <TextBox Name="songTitle"
+                <TextBox Name="playlistGenre"
+                     PlaceholderText="Playlist genre"
+                     Style="{StaticResource EnterInfo}"
+                     Text="{Binding Genre, Mode=TwoWay}"/>
+                </StackPanel>
+            </Grid>
+            <Grid Name="addSong"
+              Grid.Row="1">
+                <Grid.Resources>
+                    <viewModels:SongViewModel x:Key="newSong"/>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <!--<StackPanel VerticalAlignment="Center">-->
+
+                <Grid Grid.Row="0"
+                  DataContext="{StaticResource newSong}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="songTitle"
+                         Grid.Row="0"
                      PlaceholderText="Song Title"
                      Style="{StaticResource EnterInfo}"
                      Text="{Binding SongTitle, Mode=TwoWay}"/>
-                <TextBox Name="songUrl"
-                     PlaceholderText="Song Url"
-                     Style="{StaticResource EnterInfo}"
-                     Text="{Binding Url, Mode=TwoWay}"/>
+                    <TextBox Name="songGenre"
+                         Grid.Row="1"
+                         PlaceholderText="Song genre"
+                         Style="{StaticResource EnterInfo}"
+                         Text="{Binding Genre, Mode=TwoWay}"/>
+                    <TextBox Name="songUrl"
+                         Grid.Row="2"
+                         PlaceholderText="Song Url"
+                         Style="{StaticResource EnterInfo}"
+                         Text="{Binding Url, Mode=TwoWay}"/>
+                </Grid>
+
                 <Button Content="Add Song"
-                    CommandParameter="{StaticResource newSong}"
-                    Style="{StaticResource RegularButton}"
-                    Command="{Binding ContentViewModel.AddSong}"/>
-                <Button Name="SavePlaylistButton" 
+                    Grid.Row="1"
+                        Style="{StaticResource RegularButton}"
+                        CommandParameter="{StaticResource newSong}"
+                        Command="{Binding AddSong}"/>
+            </Grid>
+            <Grid Name="savePlaylist"
+              Grid.Row="2">
+            <Button Name="SavePlaylistButton" 
                         Content="Save Playlist"
                         Style="{StaticResource RegularButton}"
+                        CommandParameter="{StaticResource newPlaylist}"
+                        Command="{Binding SavePlaylist}"
                         Click="OnSavePlaylistButtonClick"/>
-            </StackPanel>            
+                <AppBarButton Icon="Back"
+                              Click="OnSavePlaylistButtonClick"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

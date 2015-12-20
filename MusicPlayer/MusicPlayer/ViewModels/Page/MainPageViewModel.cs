@@ -1,4 +1,6 @@
-﻿namespace MusicPlayer.ViewModels
+﻿using MusicPlayer.Contracts;
+
+namespace MusicPlayer.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {

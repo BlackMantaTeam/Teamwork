@@ -2,12 +2,12 @@
 {
     public enum Genre
     {
-        Pop,
-        Rock,
-        Metal,
-        Classic,
-        Dance,
-        Jazz,
-        Miscellaneous
+        Pop = 0,
+        Rock = 1,
+        Metal = 2,
+        Classic = 3,
+        Dance = 4,
+        Jazz = 5,
+        Miscellaneous = 6
     }
 }

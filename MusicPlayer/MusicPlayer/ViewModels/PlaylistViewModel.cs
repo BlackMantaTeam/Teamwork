@@ -1,18 +1,20 @@
 ﻿namespace MusicPlayer.ViewModels
 {
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.Windows.Input;
-	using Commands;
-	using Models;
-	using Extensions;
-	using Contracts;
-
-	public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Windows.Input;
+    using Commands;
+    using Models;
+    using Extensions;
+    using Contracts;
+    using Parse;
+    public class PlaylistViewModel : ViewModelBase, IPlaylistsViewModel, IContentViewModel
     {
-        private ObservableCollection<SongViewModel> songs;
+        public ObservableCollection<SongViewModel> songs;
         private ICommand addSongCommand;
         private ICommand deleteCommand;
+        private ICommand savePlalistCommand;
+        private ICommand loadPlaylistsCommand;
 
         public PlaylistViewModel()
             : this(string.Empty)
@@ -24,9 +26,21 @@
             this.PlaylistTitle = title;
         }
 
+        public PlaylistViewModel(PlaylistViewModel newPlaylist)
+            : this(newPlaylist.PlaylistTitle, newPlaylist.Genre, newPlaylist.Songs)
+        {
+        }
+
+        public PlaylistViewModel(string title, string genre, IEnumerable<SongViewModel> songs)
+        {
+            this.PlaylistTitle = title;
+            this.Genre = genre;
+            this.Songs = songs;
+        }
+
         public string PlaylistTitle { get; set; }
 
-        public Genre Genre { get; set; }
+        public string Genre { get; set; }
 
         public IEnumerable<SongViewModel> Songs
         {
@@ -82,6 +96,57 @@
 
                 return this.deleteCommand;
             }
+        }
+
+        public ICommand SavePlaylist
+        {
+            get
+            {
+                if (this.savePlalistCommand == null)
+                {
+                    this.savePlalistCommand = new DelegateCommand(this.OnSavePlaylistExecute);
+                }
+
+                return this.savePlalistCommand;
+            }
+        }
+
+        public ICommand LoadPlaylist
+        {
+            get
+            {
+                if (this.loadPlaylistsCommand == null)
+                {
+                    this.loadPlaylistsCommand = new DelegateCommand(this.OnLoadPlaylistsExecute);
+                }
+
+                return this.loadPlaylistsCommand;
+            }
+        }
+
+        private async void OnLoadPlaylistsExecute()
+        {
+            var userPlaylists = await ParseObject.GetQuery("Playlist").WhereEqualTo("user", ParseUser.CurrentUser).FindAsync();
+        }
+
+        private async void OnSavePlaylistExecute()
+        {
+            ObservableCollection<Song> songsToAdd = new ObservableCollection<Song>();
+            this.Songs.ForEach(x => songsToAdd.Add(new Song(
+                x.SongTitle,                
+                x.Url,
+                x.Genre.ToString()
+            )));
+            var playlist = new Playlist
+            {
+                PlaylistTitle = this.PlaylistTitle,
+                Songs = songsToAdd,
+                Genre = this.Genre.ToString()
+            };
+
+            playlist["user"] = ParseUser.CurrentUser;
+
+            await playlist.SaveAsync();
         }
     }
 }

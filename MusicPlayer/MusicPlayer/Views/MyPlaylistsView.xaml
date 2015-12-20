@@ -36,11 +36,11 @@
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="{Binding PlaylistTitle}" 
                            Tapped="TextBlock_Tapped"/>
-				<AppBarButton Icon="Delete"
+                <AppBarButton Icon="Delete"
 							  CommandParameter="{Binding}"
 							  Command="{Binding ElementName=pageMyPlaylists,
                                          Path=DataContext.ContentViewModel.Remove}"/>
-			</StackPanel>
+            </StackPanel>
 		</DataTemplate>
 	</Page.Resources>
 
@@ -59,7 +59,7 @@
 
 		<Grid Name="MyPlaylistsContent"
               Grid.Row="1">
-			<ListBox ItemsSource="{Binding ContentViewModel.Playlists}"
+            <ListBox ItemsSource="{Binding ContentViewModel.Playlists}"
                      ItemTemplate="{StaticResource PlaylistTemplate}"/>
 		</Grid>
 	</Grid>

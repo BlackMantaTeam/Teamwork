@@ -37,6 +37,8 @@
 			</StackPanel>
 			<!--<TextBlock  Text="{Binding Title}"
         		        Style="{StaticResource MainPageTitleStyle}"/>-->
+            <!--<Button x:Name="GetAllButton" Content="Get all" HorizontalAlignment="Stretch" Margin="10,138,10,0" VerticalAlignment="Top" Height="46" Click="GetAllButtonClick"/>
+            <TextBlock x:Name="AllItemsTextBlock" Margin="10,189,10,10" TextWrapping="Wrap" Text=""/>-->
 		</StackPanel>
 	</Grid>
 </Page>
