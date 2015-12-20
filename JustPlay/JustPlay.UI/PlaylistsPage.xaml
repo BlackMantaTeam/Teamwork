@@ -1,4 +1,5 @@
 ﻿<Page
+	Name="pagePlaylists"
     x:Class="JustPlay.UI.PlaylistsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -17,7 +18,7 @@
 		<RelativePanel>
 			<Button Name="paneOpenCloseButton" 
                     RelativePanel.AlignLeftWithPanel="True" 
-					CommandParameter="{Binding MySplitView}"
+					CommandParameter="{Binding ElementName=MySplitView}"
                     Command="{Binding RevealPane}"
                     FontSize="20"
                     Height="45"
@@ -44,19 +45,20 @@
                    CompactPaneLength="45" 
                    OpenPaneLength="200">
 			<SplitView.Pane>
-				<ListView Name="MenuItemsListView" 
+				<ListView Name="MenuItemsListView"
+						  IsItemClickEnabled="True"
+						  ItemClick="MenuItemsListView_ItemClick"
                           IsItemClickEnabled="True" 
-                          ItemsSource="{Binding ContentViewModel.Songs}" >
+                          ItemsSource="{Binding ContentViewModel.Playlists}" >
 					<ListView.ItemTemplate>
 						<DataTemplate x:DataType="data:SoundViewModel">
 							<StackPanel Orientation="Horizontal">
-								<Image Source="{x:Bind ImageSource}" 
+								<Image Source="{Binding ImageSource}" 
                                        Height="35" 
                                        Width="35"
-                                       Margin="-10,10,0,10"
-                                       />
+                                       Margin="-10,10,0,10" />
 								<TextBlock 
-                                    Text="{x:Bind Genre}" 
+                                    Text="{Binding Title}" 
                                     FontSize="18" 
                                     Margin="10,0,0,0" 
                                     VerticalAlignment="Center" />
@@ -85,7 +87,7 @@
                               ItemsSource="{Binding ContentViewModel.Songs}" >
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">
-								<Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImageSource}" />
+								<Image Name="MyImage" Height="112" Width="101" Source="{Binding ImageSource}" />
 							</DataTemplate>
 						</GridView.ItemTemplate>
 					</GridView>

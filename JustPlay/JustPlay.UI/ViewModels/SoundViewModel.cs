@@ -20,8 +20,8 @@
 			this.Title = title;
 			this.Genre = genre;
 
-			AudioSource = $"/Assets/Audio/{genre}/{title}.wav";
-			ImageSource = $"/Assets/Images/{genre}/{title}.png";
+			this.AudioSource = $"/Assets/Audio/{genre}/{title}.wav";
+			this.ImageSource = $"/Assets/Images/{genre}/{title}.png";
 		}
 
 		public SoundViewModel(SoundViewModel newSong)

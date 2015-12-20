@@ -9,30 +9,30 @@
 
 	public class PlaylistsContentViewModel : ViewModelBase, IContentViewModel
 	{
-		private ObservableCollection<SoundViewModel> songs { get; set; }
+		private ObservableCollection<PlaylistViewModel> playlists;
 		private ICommand addCommand;
 		private ICommand deleteCommand;
 
-		public IEnumerable<SoundViewModel> Songs
+		public IEnumerable<PlaylistViewModel> Playlists
 		{
 			get
 			{
-				if (this.songs == null)
+				if (this.playlists == null)
 				{
-					this.songs = new ObservableCollection<SoundViewModel>();
+					this.playlists = new ObservableCollection<PlaylistViewModel>();
 				}
 
-				return this.songs;
+				return this.playlists;
 			}
 			set
 			{
-				if (this.songs == null)
+				if (this.playlists == null)
 				{
-					this.songs = new ObservableCollection<SoundViewModel>();
+					this.playlists = new ObservableCollection<PlaylistViewModel>();
 				}
 
-				this.songs.Clear();
-				value.ForEach(this.songs.Add);
+				this.playlists.Clear();
+				value.ForEach(this.playlists.Add);
 			}
 		}
 
@@ -42,9 +42,9 @@
 			{
 				if (this.addCommand == null)
 				{
-					this.addCommand = new DelegateCommand<SoundViewModel>((newSong) =>
+					this.addCommand = new DelegateCommand<PlaylistViewModel>((newPlaylist) =>
 					{
-						this.songs.Add(new SoundViewModel(newSong));
+						this.playlists.Add(new PlaylistViewModel(newPlaylist));
 					});
 				}
 
@@ -58,9 +58,9 @@
 			{
 				if (this.deleteCommand == null)
 				{
-					this.deleteCommand = new DelegateCommand<SoundViewModel>((song) =>
+					this.deleteCommand = new DelegateCommand<SoundViewModel>((playlist) =>
 					{
-						song.Name = "Master Yoda";
+						playlist.Name = "Master Yoda";
 					});
 				}
 				return this.deleteCommand;

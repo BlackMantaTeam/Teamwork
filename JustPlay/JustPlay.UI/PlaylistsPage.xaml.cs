@@ -36,23 +36,34 @@ namespace JustPlay.UI
 
 
 			var playlistsContent = new PlaylistsContentViewModel();
-			playlistsContent.Songs = new List<SoundViewModel>
+			playlistsContent.Playlists = new List<PlaylistViewModel>
 			{
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Megadeth", genre: "Metal"),
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Eminem", genre: "Rap"),
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Metallica", genre: "Metal"),
-				new SoundViewModel(title: "Metallica", genre: "Metal")
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png")
 			};
 
 			var playlistDataContext = new PlaylistsPageViewModel(playlistsContent);
 			this.DataContext = playlistDataContext;
 
 			BackButton.Visibility = Visibility.Collapsed;
+		}
+
+		private void MenuItemsListView_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			var currentPlaylist = (PlaylistViewModel)e.ClickedItem;
+
+			// Filter on category
+			CategoryTextBlock.Text = currentPlaylist.Title;
+
+			this.
+
+			//SoundManager.GetSoundsByCategory(Sounds, menuItem.Category);
+			BackButton.Visibility = Visibility.Visible;
 		}
 	}
 }

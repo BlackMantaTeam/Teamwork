@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PlaylistViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\Content\PlaylistsContentViewModel.cs" />
     <Compile Include="ViewModels\Pages\PageViewModelBase.cs" />
