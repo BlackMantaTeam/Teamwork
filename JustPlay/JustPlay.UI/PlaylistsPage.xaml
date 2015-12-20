@@ -15,9 +15,10 @@
 		</Grid.RowDefinitions>
 
 		<RelativePanel>
-			<Button Name="HamburgerButton" 
+			<Button Name="paneOpenCloseButton" 
                     RelativePanel.AlignLeftWithPanel="True" 
-                    Click="HamburgerButton_Click"
+					CommandParameter="{Binding MySplitView}"
+                    Command="{Binding RevealPane}"
                     FontFamily="Segoe MDL2 Assets" 
                     FontSize="20"
                     Height="45"
@@ -25,9 +26,8 @@
                     Content="&#xE700;"/>
 
 			<Button Name="BackButton" 
-                    RelativePanel.RightOf="HamburgerButton"
+                    RelativePanel.RightOf="paneOpenCloseButton"
                     Click="BackButton_Click"
-                    FontFamily="Segoe MDL2 Assets"
                     FontSize="20"
                     Height="45"
                     Width="45"                    
@@ -88,7 +88,7 @@
                               AllowDrop="True"
                               Drop="SoundGridView_Drop"
                               DragOver="SoundGridView_DragOver"
-                              ItemsSource="{x:Bind Sounds}"
+                              ItemsSource="{Binding ContentViewModel.Songs}"
                               ItemClick="SoundGridView_ItemClick">
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">

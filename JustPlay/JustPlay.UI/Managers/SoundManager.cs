@@ -33,7 +33,7 @@
 		private static List<SoundViewModel> getSounds()
 		{
 			var sounds = new List<SoundViewModel>();
-			string SoundCategory ="Metal";
+			string SoundCategory = "Metal";
 
 			sounds.Add(new SoundViewModel("Cow", SoundCategory));
 			sounds.Add(new SoundViewModel("Cat", SoundCategory));

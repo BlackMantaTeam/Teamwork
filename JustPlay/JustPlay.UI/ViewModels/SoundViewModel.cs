@@ -24,5 +24,14 @@
 			ImageSource = $"/Assets/Images/{genre}/{title}.png";
 		}
 
+		public SoundViewModel(SoundViewModel newSong)
+		{
+			this.Title = newSong.Title;
+			this.Genre = newSong.Genre;
+			this.AudioSource = newSong.AudioSource;
+			this.ImageSource = newSong.ImageSource;
+			this.Artist = newSong.Artist;
+			this.Name = newSong.Name;
+		}
 	}
 }

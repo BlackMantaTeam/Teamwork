@@ -98,8 +98,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\DelegateCommands.cs" />
     <Compile Include="Contracts\IContentViewModel.cs" />
     <Compile Include="Contracts\IPageViewModel.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="PlaylistsPage.xaml.cs">
       <DependentUpon>PlaylistsPage.xaml</DependentUpon>
     </Compile>

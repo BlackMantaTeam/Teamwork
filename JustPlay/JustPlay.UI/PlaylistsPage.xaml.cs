@@ -1,5 +1,7 @@
 ﻿using JustPlay.UI.Managers;
 using JustPlay.UI.ViewModels;
+using JustPlay.UI.ViewModels.Content;
+using JustPlay.UI.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,115 +24,35 @@ using Windows.UI.Xaml.Navigation;
 
 namespace JustPlay.UI
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class PlaylistsPage : Page
-    {
-		private ObservableCollection<SoundViewModel> Sounds;
-		private List<String> Suggestions;
-		private List<MenuItemViewModel> MenuItems;
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class PlaylistsPage : Page
+	{
 
 		public PlaylistsPage()
 		{
 			this.InitializeComponent();
-			Sounds = new ObservableCollection<SoundViewModel>();
-			SoundManager.GetAllSounds(Sounds);
-
-			MenuItems = new List<MenuItemViewModel>();
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/animals.png", Category = "afasdfasf" });
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/cartoon.png", Category = "Pop"});
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/taunt.png", Category = "Name"});
-			MenuItems.Add(new MenuItemViewModel { IconFile = "Assets/Icons/warning.png", Category = "Britain"});
-
-			BackButton.Visibility = Visibility.Collapsed;
-		}
-
-		private void HamburgerButton_Click(object sender, RoutedEventArgs e)
-		{
-			MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
-		}
-
-		private void BackButton_Click(object sender, RoutedEventArgs e)
-		{
-			goBack();
-		}
-
-		private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-		{
-			if (String.IsNullOrEmpty(sender.Text)) goBack();
-
-			SoundManager.GetAllSounds(Sounds);
-			Suggestions = Sounds.Where(p => p.Title.StartsWith(sender.Text)).Select(p => p.Title).ToList();
-			SearchAutoSuggestBox.ItemsSource = Suggestions;
-
-		}
-
-		private void goBack()
-		{
-			SoundManager.GetAllSounds(Sounds);
-			CategoryTextBlock.Text = "All Sounds";
-			MenuItemsListView.SelectedItem = null;
-			BackButton.Visibility = Visibility.Collapsed;
-		}
 
 
-		private void SearchAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
-		{
-			SoundManager.GetSoundsByName(Sounds, sender.Text);
-			CategoryTextBlock.Text = sender.Text;
-			MenuItemsListView.SelectedItem = null;
-			BackButton.Visibility = Visibility.Visible;
-		}
-
-		private void MenuItemsListView_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			var menuItem = (MenuItemViewModel)e.ClickedItem;
-
-			// Filter on category
-			CategoryTextBlock.Text = menuItem.Category.ToString();
-			SoundManager.GetSoundsByCategory(Sounds, menuItem.Category);
-			BackButton.Visibility = Visibility.Visible;
-		}
-
-		private void SoundGridView_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			var sound = (SoundViewModel)e.ClickedItem;
-			MyMediaElement.Source = new Uri(this.BaseUri, sound.AudioSource);
-		}
-
-		private async void SoundGridView_Drop(object sender, DragEventArgs e)
-		{
-			if (e.DataView.Contains(StandardDataFormats.StorageItems))
+			var playlistsContent = new PlaylistsContentViewModel();
+			playlistsContent.Songs = new List<SoundViewModel>
 			{
-				var items = await e.DataView.GetStorageItemsAsync();
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Megadeth", genre: "Metal"),
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Eminem", genre: "Rap"),
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Metallica", genre: "Metal"),
+				new SoundViewModel(title: "Metallica", genre: "Metal")
+			};
 
-				if (items.Any())
-				{
-					var storageFile = items[0] as StorageFile;
-					var contentType = storageFile.ContentType;
+			var playlistDataContext = new PlaylistsPageViewModel(playlistsContent);
+			this.DataContext = playlistDataContext;
 
-					StorageFolder folder = ApplicationData.Current.LocalFolder;
-
-					if (contentType == "audio/wav" || contentType == "audio/mpeg")
-					{
-						StorageFile newFile = await storageFile.CopyAsync(folder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
-
-						MyMediaElement.SetSource(await storageFile.OpenAsync(FileAccessMode.Read), contentType);
-						MyMediaElement.Play();
-					}
-				}
-			}
-		}
-
-		private void SoundGridView_DragOver(object sender, DragEventArgs e)
-		{
-			e.AcceptedOperation = DataPackageOperation.Copy;
-
-			e.DragUIOverride.Caption = "drop to create a custom sound and tile";
-			e.DragUIOverride.IsCaptionVisible = true;
-			e.DragUIOverride.IsContentVisible = true;
-			e.DragUIOverride.IsGlyphVisible = true;
+			BackButton.Visibility = Visibility.Collapsed;
 		}
 	}
 }
