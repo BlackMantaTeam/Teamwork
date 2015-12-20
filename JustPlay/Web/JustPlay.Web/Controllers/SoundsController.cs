@@ -5,35 +5,42 @@
     using Data;
     using Data.Models;
     using Models;
+    using Data.Repositories;
 
     public class SoundsController : ApiController
     {
-        private readonly JustPlayDbContext db;
+        private readonly IRepository<Sound> sounds;
+        private readonly IRepository<User> users;
 
         public SoundsController()
         {
-            this.db = new JustPlayDbContext();
+            var db = new JustPlayDbContext();
+            this.sounds = new GenericRepository<Sound>(db);
+            this.users = new GenericRepository<User>(db);
         }
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        public IHttpActionResult GetAll()
         {
-            var result = this.db
-                .Sounds
+            var result = this.sounds
+                .All()
                 .Select(SoundsViewModel.FromModel)
                 .ToList();
 
             return this.Ok(result);
         }
 
-        public IHttpActionResult Get(string sound)
+        [HttpGet]
+        [Route("api/Sounds/Get/{name}")]
+        public IHttpActionResult GetSound(string sound)
         {
             if (string.IsNullOrEmpty(sound))
             {
                 return this.BadRequest("Sound cannot  be null or empty");
             }
 
-            var result = this.db
-                .Sounds
+            var result = this.sounds
+                .All()
                 .Where(s => s.Name == sound)
                 .FirstOrDefault();
 
@@ -46,10 +53,11 @@
         }
 
         //[Authorize]
-        public IHttpActionResult Post(SoundsViewModel model)
+        [HttpPost]
+        public IHttpActionResult CreateSound(SoundsViewModel model)
         {
-            var currentUser = this.db
-                .Users
+            var currentUser = this.users
+                .All()
                 .FirstOrDefault(u => u.UserName == this.User.Identity.Name);
 
             var newSound = new Sound
@@ -63,8 +71,8 @@
                 Rating = model.Rating
             };
 
-            db.Sounds.Add(newSound);
-            db.SaveChanges();
+            this.sounds.Add(newSound);
+            this.sounds.SaveChanges();
             return this.Ok(newSound.Id);
         }
     }

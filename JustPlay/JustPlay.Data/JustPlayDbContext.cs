@@ -3,6 +3,7 @@
     using Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
+
     public class JustPlayDbContext : IdentityDbContext<User>, IJustPlayDbContext
     {
         public JustPlayDbContext()

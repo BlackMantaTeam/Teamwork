@@ -5,35 +5,42 @@
     using Data;
     using Data.Models;
     using Models;
+    using Data.Repositories;
 
     public class MenuItemsController : ApiController
     {
-        private readonly JustPlayDbContext db;
+        private readonly IRepository<MenuItem> menuItems;
+        private readonly IRepository<User> users;
 
         public MenuItemsController()
         {
-            this.db = new JustPlayDbContext();
+            var db = new JustPlayDbContext();
+            this.menuItems = new GenericRepository<MenuItem>(db);
+            this.users = new GenericRepository<User>(db);
         }
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        public IHttpActionResult GetAll()
         {
-            var result = this.db
-                .MenuItems
+            var result = this.menuItems
+                .All()
                 .Select(MenuItemsViewModel.FromModel)
                 .ToList();
 
             return this.Ok(result);
         }
 
-        public IHttpActionResult Get(string category)
+        [HttpGet]
+        [Route("api/MenuItems/Get/{category}")]
+        public IHttpActionResult GetMenuItem(string category)
         {
             if (string.IsNullOrEmpty(category))
             {
                 return this.BadRequest("Category cannot  be null or empty");
             }
 
-            var result = this.db
-                .MenuItems
+            var result = this.menuItems
+                .All()
                 .Where(s => s.Category == category)
                 .FirstOrDefault();
 
@@ -46,10 +53,11 @@
         }
 
         //[Authorize]
-        public IHttpActionResult Post(MenuItemsViewModel model)
+        [HttpPost]
+        public IHttpActionResult CreateMenuItem(MenuItemsViewModel model)
         {
-            var currentUser = this.db
-                .Users
+            var currentUser = this.users
+                .All()
                 .FirstOrDefault(u => u.UserName == this.User.Identity.Name);
 
             var newMenuItem = new MenuItem
@@ -58,10 +66,9 @@
                 Category = model.Category
             };
 
-            db.MenuItems.Add(newMenuItem);
-            db.SaveChanges();
+            this.menuItems.Add(newMenuItem);
+            this.menuItems.SaveChanges();
             return this.Ok(newMenuItem.Id);
         }
-
     }
 }

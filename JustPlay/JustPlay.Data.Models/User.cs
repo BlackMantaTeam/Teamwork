@@ -13,7 +13,11 @@
         public User()
         {
             this.sounds = new List<Sound>();
-        }
+        }              
+
+        public string ImageUrl { get; set; }
+
+        public virtual ICollection<Sound> Sounds { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
@@ -21,9 +25,5 @@
 
             return userIdentity;
         }
-
-        public string ImageUrl { get; set; }
-
-        public virtual ICollection<Sound> Sounds { get; set; }
     }
 }
