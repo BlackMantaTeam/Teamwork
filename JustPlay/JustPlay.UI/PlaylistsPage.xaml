@@ -19,7 +19,6 @@
                     RelativePanel.AlignLeftWithPanel="True" 
 					CommandParameter="{Binding MySplitView}"
                     Command="{Binding RevealPane}"
-                    FontFamily="Segoe MDL2 Assets" 
                     FontSize="20"
                     Height="45"
                     Width="45"
@@ -27,7 +26,6 @@
 
 			<Button Name="BackButton" 
                     RelativePanel.RightOf="paneOpenCloseButton"
-                    Click="BackButton_Click"
                     FontSize="20"
                     Height="45"
                     Width="45"                    
@@ -37,8 +35,6 @@
                             PlaceholderText="Search for sounds"
                             Width="200"
                             QueryIcon="Find"
-                            TextChanged="SearchAutoSuggestBox_TextChanged"
-                            QuerySubmitted="SearchAutoSuggestBox_QuerySubmitted"
                             RelativePanel.AlignRightWithPanel="True">
 			</AutoSuggestBox>
 		</RelativePanel>
@@ -50,18 +46,17 @@
 			<SplitView.Pane>
 				<ListView Name="MenuItemsListView" 
                           IsItemClickEnabled="True" 
-                          ItemsSource="{x:Bind MenuItems}"
-                          ItemClick="MenuItemsListView_ItemClick">
+                          ItemsSource="{Binding ContentViewModel.Songs}" >
 					<ListView.ItemTemplate>
-						<DataTemplate x:DataType="data:MenuItemViewModel">
+						<DataTemplate x:DataType="data:SoundViewModel">
 							<StackPanel Orientation="Horizontal">
-								<Image Source="{x:Bind IconFile}" 
+								<Image Source="{x:Bind ImageSource}" 
                                        Height="35" 
                                        Width="35"
                                        Margin="-10,10,0,10"
                                        />
 								<TextBlock 
-                                    Text="{x:Bind Category}" 
+                                    Text="{x:Bind Genre}" 
                                     FontSize="18" 
                                     Margin="10,0,0,0" 
                                     VerticalAlignment="Center" />
@@ -70,6 +65,7 @@
 					</ListView.ItemTemplate>
 				</ListView>
 			</SplitView.Pane>
+
 			<SplitView.Content>
 				<Grid Margin="20,20,0,0">
 					<Grid.RowDefinitions>
@@ -86,10 +82,7 @@
                               SelectionMode="None"
                               IsItemClickEnabled="True"
                               AllowDrop="True"
-                              Drop="SoundGridView_Drop"
-                              DragOver="SoundGridView_DragOver"
-                              ItemsSource="{Binding ContentViewModel.Songs}"
-                              ItemClick="SoundGridView_ItemClick">
+                              ItemsSource="{Binding ContentViewModel.Songs}" >
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">
 								<Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImageSource}" />

@@ -27,6 +27,7 @@
 						pane.IsPaneOpen = !pane.IsPaneOpen;
 					});
 				}
+
 				return this.revealPaneCommand;
 			}
 		}
