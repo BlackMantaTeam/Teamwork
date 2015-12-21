@@ -82,12 +82,16 @@
                               x:Name="SoundGridView"
                               SelectionMode="None"
                               IsItemClickEnabled="True"
+							  ItemClick="SoundGridView_ItemClick"
                               AllowDrop="True" 
 							  ItemsSource="{Binding ContentViewModel.CurrentPlaylist, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">
-								<Image Name="MyImage" Height="112" Width="101" Source="{Binding ImageSource}" />
+								<StackPanel>
+									<TextBlock Name="songTitle" Text="{Binding Title}" />
+									<Image Name="MyImage" Height="112" Width="101" Source="{Binding ImageSource}"/>
+								</StackPanel>
 							</DataTemplate>
 						</GridView.ItemTemplate>
 

@@ -122,6 +122,23 @@
     <None Include="JustPlay.UI_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Music\01. The Eye Of The Storm.mp3" />
+    <Content Include="Assets\Music\02. Immortalized.mp3" />
+    <Content Include="Assets\Music\03. The Vengeful One.mp3" />
+    <Content Include="Assets\Music\04. Open Your Eyes.mp3" />
+    <Content Include="Assets\Music\05. The Light.mp3" />
+    <Content Include="Assets\Music\06. What Are You Waiting For.mp3" />
+    <Content Include="Assets\Music\07. You%27re Mine.mp3" />
+    <Content Include="Assets\Music\08. Who.mp3" />
+    <Content Include="Assets\Music\09. Save Our Last Goodbye.mp3" />
+    <Content Include="Assets\Music\10. Fire It Up.mp3" />
+    <Content Include="Assets\Music\11. The Sound of Silence.mp3" />
+    <Content Include="Assets\Music\12. Never Wrong.mp3" />
+    <Content Include="Assets\Music\13. Who Taught You How To Hate.mp3" />
+    <Content Include="Assets\Music\14. Tyrant.mp3" />
+    <Content Include="Assets\1439537280_-1018871059.jpg" />
+    <Content Include="Assets\Music\15. Legion of Monsters.mp3" />
+    <Content Include="Assets\Music\16. The Brave And The Bold.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

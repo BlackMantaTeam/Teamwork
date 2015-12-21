@@ -10,6 +10,7 @@
 	public class PlaylistsContentViewModel : ViewModelBase, IContentViewModel
 	{
 		private ObservableCollection<PlaylistViewModel> playlists;
+		private ObservableCollection<SoundViewModel> currentPlaylist;
 		private ICommand addCommand;
 		private ICommand deleteCommand;
 
@@ -36,7 +37,28 @@
 			}
 		}
 
-		public PlaylistViewModel CurrentPlaylist { get; set; }
+		public ObservableCollection<SoundViewModel> CurrentPlaylist
+		{
+			get
+			{
+				if (this.currentPlaylist == null)
+				{
+					this.currentPlaylist = new ObservableCollection<SoundViewModel>();
+				}
+
+				return this.currentPlaylist;
+			}
+			set
+			{
+				if (this.currentPlaylist == null)
+				{
+					this.currentPlaylist = new ObservableCollection<SoundViewModel>();
+				}
+
+				this.currentPlaylist.Clear();
+				value.ForEach(this.currentPlaylist.Add);
+			}
+		}
 
 		public ICommand Save
 		{

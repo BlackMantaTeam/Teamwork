@@ -1,4 +1,5 @@
-﻿using JustPlay.UI.Managers;
+﻿using JustPlay.UI.Extensions;
+using JustPlay.UI.Managers;
 using JustPlay.UI.ViewModels;
 using JustPlay.UI.ViewModels.Content;
 using JustPlay.UI.ViewModels.Pages;
@@ -29,6 +30,9 @@ namespace JustPlay.UI
 	/// </summary>
 	public sealed partial class PlaylistsPage : Page
 	{
+		private readonly string BASE_PATH_TO_EXAMPLE_AUDIO = "/Assets/Music/02. Immortalized.mp3";
+		private readonly string BASE_PATH_TO_EXAMPLE_IMAGE = "/Assets/LockScreenLogo.scale-200.png";
+		private readonly string BASE_PATH_TO_DISTURBED = "/Assets/1439537280_-1018871059.jpg";
 
 		public PlaylistsPage()
 		{
@@ -38,11 +42,36 @@ namespace JustPlay.UI
 			var playlistsContent = new PlaylistsContentViewModel();
 			playlistsContent.Playlists = new List<PlaylistViewModel>
 			{
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Megadeth","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Johan Strauss","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png")
+				new PlaylistViewModel("Metallicaaaa", BASE_PATH_TO_DISTURBED)
+					{Songs=new List<SoundViewModel>
+					{
+						new SoundViewModel("Johan the balerina","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the balerina","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the balerina","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the balerina","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the balerina","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+					} },
+					new PlaylistViewModel("Eminem", BASE_PATH_TO_EXAMPLE_IMAGE)
+					{Songs=new List<SoundViewModel>
+					{
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the barbarian","Hard rock") {ImageSource=BASE_PATH_TO_EXAMPLE_IMAGE, AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+					} }
 			};
+
 
 			this.ContentViewModel = playlistsContent;
 
@@ -58,9 +87,18 @@ namespace JustPlay.UI
 		{
 			var currentPlaylist = (PlaylistViewModel)e.ClickedItem;
 
-			this.ContentViewModel.CurrentPlaylist = currentPlaylist;
+			this.ContentViewModel.CurrentPlaylist.Clear();
+			currentPlaylist.Songs.ForEach(song => this.ContentViewModel.CurrentPlaylist.Add(song));
 
-			//BackButton.Visibility = Visibility.Visible;
+			BackButton.Visibility = Visibility.Visible;
+		}
+
+		private void SoundGridView_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			var currentSong = (SoundViewModel)e.ClickedItem;
+
+			this.MyMediaElement.Source = new Uri(this.BaseUri, currentSong.AudioSource);
+			this.MyMediaElement.Play();
 		}
 	}
 }
