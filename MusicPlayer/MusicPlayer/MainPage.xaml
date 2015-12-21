@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="MusicPlayer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MusicPlayer.ViewModels"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Page.Resources>
+        <viewModels:UserViewModel x:Key="UserViewModel" />
+    </Page.Resources>
+    <Grid Style="{StaticResource MainPageLayoutRootStyle}"
+          DataContext="{Binding Source={StaticResource UserViewModel}}">
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+            <!--<StackPanel	Orientation="Vertical">-->
+                <TextBox PlaceholderText="Username"
+                         Style="{StaticResource EnterInfo}"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <TextBox PlaceholderText="Password"
+                     Style="{StaticResource EnterInfo}"
+                         Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <!--</StackPanel>
+            <StackPanel Orientation="Horizontal">-->
+                <Button Name="LoginButton"
+                    Content="Login"
+                    Style="{StaticResource RegularButton}"
+                    Command="{Binding LoginUser}"
+					Click="OnLoginButtonClick"/>
+                <Button Name="RegisterButton"
+                    Content="Register"
+                    Style="{StaticResource RegularButton}"
+                    Click="OnRegisterButtonClick"/>
+            <!--</StackPanel>-->
+        </StackPanel>
+        <TextBlock  Text="Music Player"
+                    HorizontalAlignment="Center"
+        		    Style="{StaticResource MainPageTitleStyle}"/>
+    </Grid>
+</Page>
