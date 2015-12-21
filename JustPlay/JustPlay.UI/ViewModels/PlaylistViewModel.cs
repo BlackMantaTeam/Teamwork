@@ -4,11 +4,14 @@
 	using JustPlay.UI.Commands;
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
+	using System.ComponentModel;
 	using System.Windows.Input;
 
-	public class PlaylistViewModel : ViewModelBase
+	public class PlaylistViewModel : ViewModelBase, INotifyPropertyChanged
 	{
 		private ObservableCollection<SoundViewModel> songs;
+		private string title;
+		private string imageSource;
 		private ICommand addCommand;
 		private ICommand deleteCommand;
 
@@ -29,7 +32,18 @@
 			newPlaylist.Songs.ForEach(song => this.songs.Add(song));
 		}
 
-		public string Title { get; set; }
+		public string Title
+		{
+			get
+			{
+				return this.title;
+			}
+			set
+			{
+				this.title = value;
+				this.OnPropertyChanged("Title");
+			}
+		}
 		public string ImageSource { get; set; }
 
 		public IEnumerable<SoundViewModel> Songs

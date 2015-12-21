@@ -6,13 +6,14 @@
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
 	using System.Windows.Input;
-
+	using Windows.UI.Xaml.Controls;
 	public class PlaylistsContentViewModel : ViewModelBase, IContentViewModel
 	{
 		private ObservableCollection<PlaylistViewModel> playlists;
 		private ObservableCollection<SoundViewModel> currentPlaylist;
 		private ICommand addCommand;
 		private ICommand deleteCommand;
+		private ICommand searchCommand;
 
 		public IEnumerable<PlaylistViewModel> Playlists
 		{
@@ -82,11 +83,40 @@
 			{
 				if (this.deleteCommand == null)
 				{
-					this.deleteCommand = new DelegateCommand<SoundViewModel>((playlist) =>
+					this.deleteCommand = new DelegateCommand<PlaylistViewModel>((playlist) =>
 					{
-						playlist.Name = "Master Yoda";
+						this.playlists.Remove(playlist);
 					});
 				}
+				return this.deleteCommand;
+			}
+		}
+
+		public ICommand SearchCommand
+		{
+			get
+			{
+				if (this.deleteCommand == null)
+				{
+					this.deleteCommand = new DelegateCommand<AutoSuggestBox>((query) =>
+					{
+						if (string.IsNullOrEmpty(query.Text) == false)
+						{
+							this.CurrentPlaylist.Clear();
+							this.Playlists.ForEach(playlist =>
+							{
+								playlist.Songs.ForEach(song =>
+								{
+									if (song.Title.Contains(query.Text))
+									{
+										this.CurrentPlaylist.Add(song);
+									}
+								});
+							});
+						}
+					});
+				}
+
 				return this.deleteCommand;
 			}
 		}

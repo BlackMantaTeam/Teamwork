@@ -108,7 +108,6 @@
     <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\PlaylistViewModel.cs" />
-    <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\Content\PlaylistsContentViewModel.cs" />
     <Compile Include="ViewModels\Pages\PageViewModelBase.cs" />
     <Compile Include="ViewModels\Pages\PlaylistsPageViewModel.cs" />
@@ -139,6 +138,7 @@
     <Content Include="Assets\1439537280_-1018871059.jpg" />
     <Content Include="Assets\Music\15. Legion of Monsters.mp3" />
     <Content Include="Assets\Music\16. The Brave And The Bold.mp3" />
+    <Content Include="Assets\SongBaseImage.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
