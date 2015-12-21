@@ -89,6 +89,8 @@
                               AllowDrop="True" 
 							  Drop="SoundGridView_Drop"
 							  DragOver="SoundGridView_DragOver"
+							  Tapped="SoundGridView_Tapped"
+							  DoubleTapped="SoundGridView_DoubleTapped"
 							  ItemsSource="{Binding ContentViewModel.CurrentPlaylist, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
 						<GridView.ItemTemplate>

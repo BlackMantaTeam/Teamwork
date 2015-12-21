@@ -121,6 +121,7 @@
     <None Include="JustPlay.UI_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\PlaylistBaseImage.png" />
     <Content Include="Assets\Music\01. The Eye Of The Storm.mp3" />
     <Content Include="Assets\Music\02. Immortalized.mp3" />
     <Content Include="Assets\Music\03. The Vengeful One.mp3" />

@@ -31,7 +31,7 @@ namespace JustPlay.UI
 	public sealed partial class PlaylistsPage : Page
 	{
 		private readonly string BASE_PATH_TO_EXAMPLE_AUDIO = "/Assets/Music/02. Immortalized.mp3";
-		private readonly string BASE_PATH_TO_EXAMPLE_IMAGE = "/Assets/LockScreenLogo.scale-200.png";
+		private readonly string BASE_PATH_TO_EXAMPLE_IMAGE = "/Assets/PlaylistBaseImage.png";
 		private readonly string BASE_PATH_TO_DISTURBED = "/Assets/1439537280_-1018871059.jpg";
 
 		private bool playerIsRunning = false;
@@ -48,29 +48,104 @@ namespace JustPlay.UI
 					{Songs=new List<SoundViewModel>
 					{
 						new SoundViewModel("Johan the balerina","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the balerina","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the balerina","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the balerina","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the balerina","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Strauss","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Mozart","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the metallic","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Jedi","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 					} },
 					new PlaylistViewModel("Eminem", BASE_PATH_TO_EXAMPLE_IMAGE)
 					{Songs=new List<SoundViewModel>
 					{
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
 						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
-						new SoundViewModel("Johan the barbarian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Destroyer","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Conqueror","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Doncho the Batman","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the superior one","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the doctor","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kenov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Hristov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Muslim","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the multi-threaded","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Kostov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Cuklev","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Minkov","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan woth CS:GO and voda","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO},
+						new SoundViewModel("Johan the Russian","Hard rock") {AudioSource=BASE_PATH_TO_EXAMPLE_AUDIO}
 					} }
 			};
 
@@ -95,25 +170,6 @@ namespace JustPlay.UI
 			BackButton.Visibility = Visibility.Visible;
 		}
 
-		private void SoundGridView_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			var currentSong = (SoundViewModel)e.ClickedItem;
-
-			if (playerIsRunning == false)
-			{
-				this.MyMediaElement.Source = new Uri(this.BaseUri, currentSong.AudioSource);
-				this.MyMediaElement.Play();
-			}
-			else
-			{
-				this.MyMediaElement.Pause();
-			}
-
-			currentSong.Title = "Test";
-
-			playerIsRunning = !playerIsRunning;
-		}
-
 		private void SoundGridView_DragOver(object sender, DragEventArgs e)
 		{
 			e.AcceptedOperation = DataPackageOperation.Copy;
@@ -126,26 +182,26 @@ namespace JustPlay.UI
 
 		private async void SoundGridView_Drop(object sender, DragEventArgs e)
 		{
-			if (e.DataView.Contains(StandardDataFormats.StorageItems))
-			{
-				var items = await e.DataView.GetStorageItemsAsync();
+			//if (e.DataView.Contains(StandardDataFormats.StorageItems))
+			//{
+			//	IReadOnlyList<IStorageItem> items = await e.DataView.GetStorageItemsAsync();
 
-				if (items.Any())
-				{
-					var storageFile = items[0] as StorageFile;
-					var contentType = storageFile.ContentType;
+			//	if (items.Any())
+			//	{
+			//		var storageFile = items[0] as StorageFile;
+			//		var contentType = storageFile.ContentType;
 
-					StorageFolder folder = ApplicationData.Current.LocalFolder;
+			//		StorageFolder folder = ApplicationData.Current.LocalFolder;
 
-					if (contentType == "audio/wav" || contentType == "audio/mpeg")
-					{
-						StorageFile newFile = await storageFile.CopyAsync(folder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
+			//		if (contentType == "audio/wav" || contentType == "audio/mpeg")
+			//		{
+			//			StorageFile newFile = await storageFile.CopyAsync(folder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
 
-						MyMediaElement.SetSource(await storageFile.OpenAsync(FileAccessMode.Read), contentType);
-						MyMediaElement.Play();
-					}
-				}
-			}
+			//			MyMediaElement.SetSource(await storageFile.OpenAsync(FileAccessMode.Read), contentType);
+			//			MyMediaElement.Play();
+			//		}
+			//	}
+			//}
 		}
 
 		private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -173,6 +229,43 @@ namespace JustPlay.UI
 		private void SearchAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
 		{
 
+		}
+
+		private void SoundGridView_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			var currentSong = (SoundViewModel)e.ClickedItem;
+			this.PlaySoundFile(currentSong, playerIsRunning, this.MyMediaElement);
+			this.playerIsRunning = !this.playerIsRunning;
+		}
+
+		private void SoundGridView_Tapped(object sender, TappedRoutedEventArgs e)
+		{
+			// What on earth is this monstrosity? WHAT HAVE I DONE!?
+			var currentSong = (SoundViewModel)((Image)e.OriginalSource).DataContext;
+			this.PlaySoundFile(currentSong, playerIsRunning, this.MyMediaElement);
+			this.playerIsRunning = !this.playerIsRunning;
+		}
+
+		private void PlaySoundFile(SoundViewModel currentSong, bool playerIsRunning, MediaElement MyMediaElement)
+		{
+			if (playerIsRunning == false)
+			{
+				this.MyMediaElement.Source = new Uri(this.BaseUri, currentSong.AudioSource);
+				this.MyMediaElement.Play();
+			}
+			else
+			{
+				this.MyMediaElement.Pause();
+			}
+
+			currentSong.Title = "Test";
+
+			playerIsRunning = !playerIsRunning;
+		}
+
+		private void SoundGridView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+		{
+			// Edit current file
 		}
 	}
 }
