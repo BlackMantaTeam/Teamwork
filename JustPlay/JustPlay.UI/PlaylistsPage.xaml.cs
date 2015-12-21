@@ -40,7 +40,6 @@ namespace JustPlay.UI
 		{
 			this.InitializeComponent();
 
-
 			var playlistsContent = new PlaylistsContentViewModel();
 			playlistsContent.Playlists = new List<PlaylistViewModel>
 			{
@@ -267,6 +266,17 @@ namespace JustPlay.UI
 		{
 			// Edit current file
 			var currentSong = (SoundViewModel)((Image)e.OriginalSource).DataContext;
+			this.appbarEditSong.IsOpen = true;
+		}
+
+		private void btnAddSong_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnRemoveSong_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }

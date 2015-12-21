@@ -11,7 +11,7 @@
 		<StackPanel Margin="10,20,10,0">
 			<TextBox PlaceholderText="username" />
 			<TextBox PlaceholderText="password" />
-			<Button Content="Log in" />
+			<Button Content="Log in" Click="Button_Click" />
 			<Button Content="Sign up" />
 		</StackPanel>
 	</Grid>
