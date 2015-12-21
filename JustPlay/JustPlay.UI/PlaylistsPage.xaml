@@ -83,7 +83,7 @@
                               SelectionMode="None"
                               IsItemClickEnabled="True"
                               AllowDrop="True" 
-							  ItemsSource="{Binding ContentViewModel.CurrentPlaylist}" >
+							  ItemsSource="{Binding ContentViewModel.CurrentPlaylist, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
 						<GridView.ItemTemplate>
 							<DataTemplate x:DataType="data:SoundViewModel">

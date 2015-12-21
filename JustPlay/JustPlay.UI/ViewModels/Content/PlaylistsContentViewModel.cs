@@ -1,70 +1,72 @@
 ﻿namespace JustPlay.UI.ViewModels.Content
 {
-    using Commands;
-    using Contracts;
-    using Extensions;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Windows.Input;
+	using Commands;
+	using Contracts;
+	using Extensions;
+	using System.Collections.Generic;
+	using System.Collections.ObjectModel;
+	using System.Windows.Input;
 
-    public class PlaylistsContentViewModel : ViewModelBase, IContentViewModel
-    {
-        private ObservableCollection<SoundViewModel> songs { get; set; }
-        private ICommand addCommand;
-        private ICommand deleteCommand;
+	public class PlaylistsContentViewModel : ViewModelBase, IContentViewModel
+	{
+		private ObservableCollection<PlaylistViewModel> playlists;
+		private ICommand addCommand;
+		private ICommand deleteCommand;
 
-        public IEnumerable<SoundViewModel> Songs
-        {
-            get
-            {
-                if (this.songs == null)
-                {
-                    this.songs = new ObservableCollection<SoundViewModel>();
-                }
+		public IEnumerable<PlaylistViewModel> Playlists
+		{
+			get
+			{
+				if (this.playlists == null)
+				{
+					this.playlists = new ObservableCollection<PlaylistViewModel>();
+				}
 
-                return this.songs;
-            }
-            set
-            {
-                if (this.songs == null)
-                {
-                    this.songs = new ObservableCollection<SoundViewModel>();
-                }
+				return this.playlists;
+			}
+			set
+			{
+				if (this.playlists == null)
+				{
+					this.playlists = new ObservableCollection<PlaylistViewModel>();
+				}
 
-                this.songs.Clear();
-                value.ForEach(this.songs.Add);
-            }
-        }
+				this.playlists.Clear();
+				value.ForEach(this.playlists.Add);
+			}
+		}
 
-        public ICommand Save
-        {
-            get
-            {
-                if (this.addCommand == null)
-                {
-                    this.addCommand = new DelegateCommand<SoundViewModel>((newSong) =>
-                    {
-                        this.songs.Add(new SoundViewModel(newSong));
-                    });
-                }
+		public PlaylistViewModel CurrentPlaylist { get; set; }
 
-                return this.addCommand;
-            }
-        }
+		public ICommand Save
+		{
+			get
+			{
+				if (this.addCommand == null)
+				{
+					this.addCommand = new DelegateCommand<PlaylistViewModel>((newPlaylist) =>
+					{
+						this.playlists.Add(new PlaylistViewModel(newPlaylist));
+					});
+				}
 
-        public ICommand Delete
-        {
-            get
-            {
-                if (this.deleteCommand == null)
-                {
-                    this.deleteCommand = new DelegateCommand<SoundViewModel>((song) =>
-                    {
-                        song.Name = "Master Yoda";
-                    });
-                }
-                return this.deleteCommand;
-            }
-        }
-    }
+				return this.addCommand;
+			}
+		}
+
+		public ICommand Delete
+		{
+			get
+			{
+				if (this.deleteCommand == null)
+				{
+					this.deleteCommand = new DelegateCommand<SoundViewModel>((playlist) =>
+					{
+						playlist.Name = "Master Yoda";
+					});
+				}
+				return this.deleteCommand;
+			}
+		}
+	}
 }

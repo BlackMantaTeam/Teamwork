@@ -39,11 +39,8 @@ namespace JustPlay.UI
 			playlistsContent.Playlists = new List<PlaylistViewModel>
 			{
 				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
-				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Megadeth","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
+				new PlaylistViewModel("Johan Strauss","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png"),
 				new PlaylistViewModel("Metallicaaaa","C:\\Users\\Tectonik\\Desktop\\Teamwork\\Teamwork\\JustPlay\\JustPlay.UI\\Assets\\LockScreenLogo.scale-200.png")
 			};
 
