@@ -25,5 +25,20 @@
 
             return this.Ok(result);
         }
+
+        [HttpPost]
+        [Route("api/User/Edit")]
+        public IHttpActionResult SetProfilePic(string ImageUrl)
+        {
+            var user = this.users
+                .All()
+                .Where(x => x.UserName == this.User.Identity.Name)
+                .FirstOrDefault();
+
+            user.ImageUrl = ImageUrl;
+            this.users.SaveChanges();
+
+            return Ok();
+        }
     }
 }

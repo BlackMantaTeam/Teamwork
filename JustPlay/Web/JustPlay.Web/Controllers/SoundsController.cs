@@ -31,17 +31,18 @@
         }
 
         [HttpGet]
-        [Route("api/Sounds/Get/{name}")]
-        public IHttpActionResult GetSound(string sound)
+        [Route("api/Sounds/Get/{title}")]
+        public IHttpActionResult GetSound(string title)
         {
-            if (string.IsNullOrEmpty(sound))
+            if (string.IsNullOrEmpty(title))
             {
                 return this.BadRequest("Sound cannot  be null or empty");
             }
 
             var result = this.sounds
                 .All()
-                .Where(s => s.Name == sound)
+                .Select(SoundsViewModel.FromModel)
+                .Where(s => s.Title == title)
                 .FirstOrDefault();
 
             if (result == null)
