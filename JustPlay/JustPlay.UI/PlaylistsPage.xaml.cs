@@ -109,7 +109,7 @@ namespace JustPlay.UI
 				this.MyMediaElement.Pause();
 			}
 
-			currentSong.Title="Test";
+			currentSong.Title = "Test";
 
 			playerIsRunning = !playerIsRunning;
 		}
@@ -150,7 +150,24 @@ namespace JustPlay.UI
 
 		private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
 		{
+			string query = sender.Text;
 
+			if (string.IsNullOrEmpty(query))
+			{
+				return;
+			}
+
+			this.ContentViewModel.CurrentPlaylist.Clear();
+			this.ContentViewModel.Playlists.ForEach(playlist =>
+			{
+				playlist.Songs.ForEach(song =>
+				{
+					if (song.Title.Contains(query))
+					{
+						this.ContentViewModel.CurrentPlaylist.Add(song);
+					}
+				});
+			});
 		}
 
 		private void SearchAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)

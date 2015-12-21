@@ -38,7 +38,7 @@
                             PlaceholderText="Search for sounds"
                             Width="200"
                             QueryIcon="Find"
-							TextChanged="{Binding ContentViewModel.SearchCommand}"
+							TextChanged="SearchAutoSuggestBox_TextChanged"
                             RelativePanel.AlignRightWithPanel="True">
 			</AutoSuggestBox>
 		</RelativePanel>
