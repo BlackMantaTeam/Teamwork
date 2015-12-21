@@ -96,6 +96,7 @@
 						song.Name = "Master Yoda";
 					});
 				}
+
 				return this.deleteCommand;
 			}
 		}

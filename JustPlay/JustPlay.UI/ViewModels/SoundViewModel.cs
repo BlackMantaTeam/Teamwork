@@ -15,6 +15,10 @@
 		public string Artist { get; set; }
 		public string Name { get; set; }
 
+		public SoundViewModel()
+		{
+		}
+
 		public SoundViewModel(string title, string genre)
 		{
 			this.Title = title;

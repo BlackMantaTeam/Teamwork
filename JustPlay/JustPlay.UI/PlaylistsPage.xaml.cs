@@ -266,6 +266,7 @@ namespace JustPlay.UI
 		private void SoundGridView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
 		{
 			// Edit current file
+			var currentSong = (SoundViewModel)((Image)e.OriginalSource).DataContext;
 		}
 	}
 }
