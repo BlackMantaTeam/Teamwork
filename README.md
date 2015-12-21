@@ -32,7 +32,7 @@ Implemented functionality:
 Server: Parse is used. All Put requests are implemented, get requests are not implemented
 
 **Team**:
-- Tectonik (Martin Ali)
+- Beardhammer (Martin Ali)
 - zvet80 (Tsvetanka Chipilova)
 
 **Github**:https://github.com/BlackMantaTeam
